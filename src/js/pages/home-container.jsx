@@ -15,10 +15,16 @@ class HomeContainer extends Component {
 
   render() {
     return (
-      <Layout>
-        <Header>Header</Header>
-        <Content>Content</Content>
-        <Footer>Footer</Footer>
+      <Layout className="layout">
+        <Header>
+          <div className="logo" />
+        </Header>
+        <Content style={{padding: '0 50px'}}>
+          <div style={{background: '#fff'}}>Content</div>
+        </Content>
+        <Footer style={{textAlign: 'center'}}>
+          Ant Design ©2018 Created by Ant UED
+        </Footer>
       </Layout>
     );
   }

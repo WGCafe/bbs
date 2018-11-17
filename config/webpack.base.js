@@ -62,7 +62,7 @@ module.exports = {
         })
       },
       {
-        test: /\.styl$/,
+        test: /\.less$/,
         exclude: /node_modules/,
         use: ExtractTextPlugin.extract({
           use: [
@@ -77,7 +77,7 @@ module.exports = {
               loader: 'less-loader'
             }
           ],
-          fallback: 'less-loader'
+          fallback: 'style-loader'
         })
       },
       {

@@ -74,10 +74,10 @@ module.exports = {
               }
             },
             {
-              loader: 'stylus-loader'
+              loader: 'less-loader'
             }
           ],
-          fallback: 'style-loader'
+          fallback: 'less-loader'
         })
       },
       {

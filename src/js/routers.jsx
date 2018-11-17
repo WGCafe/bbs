@@ -5,12 +5,12 @@ import {
   Switch,
   Redirect
 } from 'react-router-dom';
+import Loadable from 'react-loadable';
 
-const HomeContainer = () => (
-  <div>
-    {'Home Container'}
-  </div>
-);
+const HomeContainer = Loadable({
+  loader: () => import('./pages/home-container.jsx'),
+  loading: () => null
+});
 
 const PageNoFound = () => (
   <div>

@@ -10,10 +10,15 @@ class HomeContainer extends Component {
 
   render() {
     return (
-      <Layout className="">
+      <Layout>
+        <Header>Header</Header>
+        <Content>Content</Content>
+        <Footer>Footer</Footer>
       </Layout>
     );
   }
 }
 
 HomeContainer.PropTypes = {};
+
+export default HomeContainer;

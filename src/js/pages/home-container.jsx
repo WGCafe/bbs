@@ -1,7 +1,12 @@
 import {Layout} from 'antd';
 import React, {Component} from 'react';
+import '../../styles/common.less';
 
-import '../styles/common.less';
+const {
+  Header,
+  Footer,
+  Content
+} = Layout;
 
 class HomeContainer extends Component {
   componentWillMount() {}

@@ -16,5 +16,9 @@ module.exports = {
   remoteProxy: 'remoteIP',
 
   token: '',
-  outputDir: 'build'
+  outputDir: 'build',
+  theme: {
+    'primary-color': '#E0501A',
+    'font-family': 'HelveticaNeue'
+  }
 };

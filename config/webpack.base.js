@@ -192,7 +192,7 @@ module.exports = {
       allChunks: true
     }),
     new HtmlWebpackPlugin({
-      title: 'Vanilla',
+      title: 'BBS',
       inject: true,
       showErrors: true,
       template: pathLib.resolve(SOURCE_PATH, 'index.html')

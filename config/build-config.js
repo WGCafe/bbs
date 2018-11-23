@@ -18,7 +18,6 @@ module.exports = {
   token: '',
   outputDir: 'build',
   theme: {
-    'primary-color': '#E0501A',
-    'font-family': 'HelveticaNeue'
+    'font-family': 'Open Sans'
   }
 };

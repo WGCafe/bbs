@@ -9,6 +9,27 @@ body, html, #content, .app {
   height: 100%;
 }
 
+.text-middle {
+  vertical-align: middle;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.dot-icon {
+  span,
+  &:before,
+  &:after {
+    content: "";
+    vertical-align: middle;
+    display: inline-block;
+    margin: 0 2px;
+    border-radius: 50%;
+  }
+}
+
 .app {
   > .ant-layout {
     height: 100%;
@@ -16,3 +37,4 @@ body, html, #content, .app {
 }
 
 @import './layouts/_header';
+@import './post';

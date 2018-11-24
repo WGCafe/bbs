@@ -1,0 +1,35 @@
+.post {
+  &__container {
+    padding: 10px 30px;
+  }
+
+  &__item.ant-list-item {
+    padding: 20px 0;
+    background-color: @bbs-white;
+  }
+
+  &__item:first-child {
+    border-radius: 6px 6px 0 0;
+  }
+
+  &__item:last-child {
+    border-radius: 0 0 6px 6px;
+  }
+
+  &__item-meta {
+    margin-left: -26px;
+  }
+
+  &__item-title {
+    font-weight: bold;
+  }
+
+  &__item-info {
+    margin: 0 -2px;
+    font-size: @font-small;
+
+    > * {
+      margin: 0 2px;
+    }
+  }
+}

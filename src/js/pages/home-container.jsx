@@ -91,9 +91,9 @@ class HomeContainer extends Component {
                             <div class="ant-list-item-meta-avatar">
                               <Avatar size={52} icon="user" />
                             </div>
-                            <div>
+                            <div className="post__rate">
                               <Icon type="caret-up" />
-                              <span>200</span>
+                              <span className="post__rate-number">200</span>
                               <Icon type="caret-down" />
                             </div>
                             <div class="ant-list-item-meta-content">
@@ -114,17 +114,69 @@ class HomeContainer extends Component {
                   </Col>
                   <Col span={7}>
                     <List
-                      header={<div>Header</div>}
-                      footer={<div>Footer</div>}
-                      bordered
+                      className="side-list"
+                      split={false}
+                      header={<div><h2 className="side-list__title">Community Guidelines</h2></div>}
                       dataSource={data2}
-                      renderItem={item => (<List.Item>{item}</List.Item>)}
+                      renderItem={item => (
+                        <List.Item>
+                          <h4 className="side-list__item-title">Aenean euismod</h4>
+                          <p className="side-list__item-detail">{item}</p>
+                        </List.Item>
+                      )}
                     />
                   </Col>
                 </Row>
               </div>
             </TabPane>
-            <TabPane tab="询问" key="2"></TabPane>
+            <TabPane tab="询问" key="2">
+              <div className="post__container container">
+                <Row type="flex" justify="space-between" align="top" gutter={24}>
+                  <Col span={17}>
+                    <List
+                      itemLayout="horizontal"
+                      dataSource={data}
+                      renderItem={item => (
+                        <List.Item className="post__item">
+                          <div class="ant-list-item-meta post__item-meta">
+                            <div className="post__rate">
+                              <Icon type="caret-up" />
+                              <span className="post__rate-number">200</span>
+                              <Icon type="caret-down" />
+                            </div>
+                            <div class="ant-list-item-meta-content">
+                              <h4 class="ant-list-item-meta-title"><a class="post__item-title" href="">{item.title}</a></h4>
+                              <div class="ant-list-item-meta-description">
+                                <div class="post__item-info">
+                                  <span class="text-middle">0 回复</span>
+                                  <i class="text-middle">•</i>
+                                  <span class="text-middle">4 小时前</span>
+                                  <span class="text-middle">来自 蓝鸭</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </List.Item>
+                      )}
+                    />
+                  </Col>
+                  <Col span={7}>
+                    <List
+                      className="side-list"
+                      split={false}
+                      header={<div><h2 className="side-list__title">Community Guidelines</h2></div>}
+                      dataSource={data2}
+                      renderItem={item => (
+                        <List.Item>
+                          <h4 className="side-list__item-title">Aenean euismod</h4>
+                          <p className="side-list__item-detail">{item}</p>
+                        </List.Item>
+                      )}
+                    />
+                  </Col>
+                </Row>
+              </div>
+            </TabPane>
             <TabPane tab="Tab 3" key="3"></TabPane>
           </Tabs>
         </Content>

@@ -77,12 +77,13 @@ class HomeContainer extends Component {
           </div>
         </Header>
         <Content>
-          <Tabs className="sub-header" defaultActiveKey="1" animated={false}>
+          <Tabs className="sub-header" defaultActiveKey="2" animated={false}>
             <TabPane tab="全部" key="1">
               <div className="post__container container">
                 <Row type="flex" justify="space-between" align="top" gutter={24}>
                   <Col span={17}>
                     <List
+                      className="post__avatar-list"
                       itemLayout="horizontal"
                       dataSource={data}
                       renderItem={item => (
@@ -133,7 +134,14 @@ class HomeContainer extends Component {
               <div className="post__container container">
                 <Row type="flex" justify="space-between" align="top" gutter={24}>
                   <Col span={17}>
+                    <div className="post__header">
+                      <div className="post__question-icon">
+                        <Icon type="question" />
+                      </div>
+                      <h2 className="post__subtitle">询问</h2>
+                    </div>
                     <List
+                      className="post__has-header"
                       itemLayout="horizontal"
                       dataSource={data}
                       renderItem={item => (

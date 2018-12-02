@@ -3,12 +3,26 @@
     padding: 10px 30px;
   }
 
+  &__header {
+    text-align: center;
+    padding: 20px;
+    background-color: @bbs-light-gray;
+    border-radius: 6px 6px 0 0;
+  }
+
+  &__subtitle {
+    vertical-align: middle;
+    display: inline-block;
+    margin: 0 16px;
+    font-weight: bold;
+  }
+
   &__item.ant-list-item {
-    padding: 20px 0;
+    padding: 20px;
     background-color: @bbs-white;
   }
 
-  &__item:first-child {
+  .ant-list:not(.post__has-header) &__item:first-child {
     border-radius: 6px 6px 0 0;
   }
 
@@ -16,8 +30,8 @@
     border-radius: 0 0 6px 6px;
   }
 
-  &__item-meta {
-    margin-left: -26px;
+  &__avatar-list &__item-meta {
+    margin-left: -46px;
   }
 
   &__item-title {
@@ -46,5 +60,20 @@
 
   &__rate-number {
     color: @bbs-primary-color;
+  }
+
+  &__question-icon {
+    display: inline-block;
+    vertical-align: middle;
+    width: 40px;
+    height: 40px;
+    color: @bbs-white;
+    background-color: @bbs-green;
+    border-radius: 50%;
+
+    .anticon-question {
+      padding: 8px 0;
+      font-size: @font-bigger;
+    }
   }
 }

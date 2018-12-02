@@ -48,11 +48,49 @@
   }
 
   &__footer-content {
-    border-bottom: 1px solid @bbs-lightter-gray;
+    border-bottom: 1px solid @bbs-divider;
     padding: 30px 0;
   }
 
   &__footer-copyright {
     margin: 26px 0 0;
+  }
+}
+
+.sign-in {
+  &__container {
+    padding-bottom: 70px;
+
+    .user__form-group.register {
+      margin-top: 20px;
+    }
+  }
+
+  &__form-container {
+    padding-bottom: 50px;
+    border-bottom: 1px solid @bbs-divider;
+  }
+
+  &__buttons {
+    margin: 30px auto 0;
+
+    > * {
+      margin: 0 14px;
+    }
+
+    button.ant-btn-primary {
+      min-width: 89px;
+      border-color: @bbs-orange;
+      background-color: @bbs-orange;
+    }
+  }
+
+  &__buttons-link {
+    color: inherit;
+  }
+
+  &__label {
+    display: inline-block;
+    margin-bottom: 30px;
   }
 }

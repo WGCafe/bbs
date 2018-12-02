@@ -12,8 +12,13 @@ const HomeContainer = Loadable({
   loading: () => null
 });
 
-const Register = Loadable({
-  loader: () => import('./users/register.jsx'),
+const Signup = Loadable({
+  loader: () => import('./users/signup.jsx'),
+  loading: () => null
+});
+
+const Signin = Loadable({
+  loader: () => import('./users/signin.jsx'),
   loading: () => null
 });
 
@@ -30,7 +35,8 @@ export default class Routers extends React.Component {
       <Router>
         <Switch>
           <Route path="/home" component={HomeContainer} />
-          <Route path="/register" component={Register} />
+          <Route path="/signup" component={Signup} />
+          <Route path="/login" component={Signin} />
           <Route path="/404" component={PageNoFound} />
           <Redirect exact path="/" to="/home" />
           <Redirect from="*" to="/404" />

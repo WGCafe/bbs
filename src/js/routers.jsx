@@ -12,6 +12,11 @@ const HomeContainer = Loadable({
   loading: () => null
 });
 
+const Register = Loadable({
+  loader: () => import('./users/register.jsx'),
+  loading: () => null
+});
+
 const PageNoFound = () => (
   <div>
     {'Page No Found'}
@@ -25,6 +30,7 @@ export default class Routers extends React.Component {
       <Router>
         <Switch>
           <Route path="/home" component={HomeContainer} />
+          <Route path="/register" component={Register} />
           <Route path="/404" component={PageNoFound} />
           <Redirect exact path="/" to="/home" />
           <Redirect from="*" to="/404" />

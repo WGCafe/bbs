@@ -3,11 +3,20 @@
     padding: 20px 10px;
     margin: 30px auto;
     max-width: 1100px;
+    min-height: 550px;
     background-color: @bbs-white;
   }
 
   &__title {
     margin: 20px auto 50px;
+  }
+
+  &__title.has-subtitle  {
+    margin-bottom: 10px;
+  }
+
+  &__subtitle {
+    padding-bottom: 20px;
   }
 
   &__form {
@@ -59,8 +68,6 @@
 
 .sign-in {
   &__container {
-    padding-bottom: 70px;
-
     .user__form-group.register {
       margin-top: 20px;
     }

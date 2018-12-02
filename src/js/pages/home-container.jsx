@@ -77,7 +77,7 @@ class HomeContainer extends Component {
           </div>
         </Header>
         <Content>
-          <Tabs className="sub-header" defaultActiveKey="2" animated={false}>
+          <Tabs className="sub-header" defaultActiveKey="1" animated={false}>
             <TabPane tab="全部" key="1">
               <div className="post__container container">
                 <Row type="flex" justify="space-between" align="top" gutter={24}>
@@ -108,6 +108,9 @@ class HomeContainer extends Component {
                                 </div>
                               </div>
                             </div>
+                          </div>
+                          <div class="ant-list-item-extra">
+                            <Icon type="star" theme="filled" />
                           </div>
                         </List.Item>
                       )}

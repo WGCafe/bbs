@@ -1,4 +1,5 @@
 .post {
+
   &__container {
     padding: 10px 30px;
   }
@@ -18,8 +19,36 @@
   }
 
   &__item.ant-list-item {
+    position: relative;
     padding: 20px;
     background-color: @bbs-white;
+
+    .ant-list-item-content-single {
+      position: relative;
+    }
+
+    .ant-list-item-extra {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      margin: auto;
+      height: 18px;
+    }
+
+    .anticon-star {
+      display: none;
+      font-size: @font-big;
+      color: @bbs-lightter-gray;
+    }
+  }
+
+  &__item:hover {
+    .anticon-star {
+      display: block;
+      font-size: @font-big;
+      color: @bbs-lightter-gray;
+    }
   }
 
   .ant-list:not(.post__has-header) &__item:first-child {

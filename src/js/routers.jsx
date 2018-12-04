@@ -12,6 +12,16 @@ const HomeContainer = Loadable({
   loading: () => null
 });
 
+const Message = Loadable({
+  loader: () => import('./pages/message.jsx'),
+  loading: () => null
+});
+
+const Search = Loadable({
+  loader: () => import('./pages/search.jsx'),
+  loading: () => null
+});
+
 const Signup = Loadable({
   loader: () => import('./users/signup.jsx'),
   loading: () => null
@@ -40,6 +50,8 @@ export default class Routers extends React.Component {
       <Router>
         <Switch>
           <Route path="/home" component={HomeContainer} />
+          <Route path="/message" component={Message} />
+          <Route path="/search" component={Search} />
           <Route path="/signup" component={Signup} />
           <Route path="/login" component={Signin} />
           <Route path="/reset-password" component={ResetPassword} />

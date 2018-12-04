@@ -1,0 +1,38 @@
+.message {
+  &__container {
+    padding: 30px;
+  }
+
+  &__content {
+    margin: 10px 0;
+    font-size: @font-main;
+    color: @bbs-dark-gray;
+  }
+
+  &__title {
+    margin: 0;
+    font-weight: bold;
+  }
+
+  &__item.ant-list-item {
+    padding: 22px 42px;
+    background-color: @bbs-white;
+
+    &:last-child {
+      border-radius: 0 0 6px 6px;
+    }
+  }
+
+  &__item.active {
+    padding: 22px 42px 22px 39px;
+    background-color: rgba(97, 189, 70, 0.05);
+    border-left: 3px solid @bbs-green;
+  }
+
+  &__header {
+    padding: 30px 42px;
+    border-bottom: 1px solid @bbs-divider;
+    background-color: @bbs-white;
+    border-radius: 6px 6px 0 0;
+  }
+}

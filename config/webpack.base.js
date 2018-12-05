@@ -12,7 +12,7 @@ const ROOT_PATH = pathLib.resolve(__dirname, '..');
 const SOURCE_PATH = pathLib.resolve(ROOT_PATH, 'src');
 const ENTRY_PATH = pathLib.resolve(SOURCE_PATH, 'js');
 const DLL_DIR_PATH = pathLib.resolve(ROOT_PATH, 'dll-dist');
-
+const {theme} = config;
 const OUTPUT_PATH = pathLib.resolve(ROOT_PATH, config.outputDir);
 
 const isDev = process.env.NODE_ENV !== 'prod';
@@ -62,7 +62,7 @@ module.exports = {
         })
       },
       {
-        test: /\.styl$/,
+        test: /\.less$/,
         exclude: /node_modules/,
         use: ExtractTextPlugin.extract({
           use: [
@@ -74,10 +74,14 @@ module.exports = {
               }
             },
             {
-              loader: 'less-loader'
+              loader: 'less-loader',
+              options: {
+                sourceMap: isSourceMap,
+                modifyVars: theme || {}
+              }
             }
           ],
-          fallback: 'less-loader'
+          fallback: 'style-loader'
         })
       },
       {

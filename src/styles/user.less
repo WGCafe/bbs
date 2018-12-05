@@ -1,0 +1,103 @@
+.user {
+  &__container {
+    padding: 20px 10px;
+    margin: 30px auto;
+    max-width: 1100px;
+    min-height: 550px;
+    background-color: @bbs-white;
+  }
+
+  &__title {
+    margin: 20px auto 50px;
+  }
+
+  &__title.has-subtitle  {
+    margin-bottom: 10px;
+  }
+
+  &__subtitle {
+    padding-bottom: 20px;
+  }
+
+  &__form {
+    margin: 0 auto;
+    max-width: 650px;
+  }
+
+  &__form-group {
+    margin: 20px auto;
+    max-width: 410px;
+  }
+
+  &__form-group.register {
+    margin-top: 70px;
+
+    .ant-btn-primary {
+      min-width: 100px;
+      border-color: @bbs-green;
+      background-color: @bbs-green;
+    }
+  }
+
+  &__footer.ant-layout-footer {
+    margin-top: 30px;
+    background-color: @bbs-white;
+  }
+
+  &__footer-title {
+    padding-left: 26px;
+  }
+
+  &__footer-subtitle {
+    margin-bottom: 10px;
+  }
+
+  &__footer-text {
+    color: @bbs-gray;
+  }
+
+  &__footer-content {
+    border-bottom: 1px solid @bbs-divider;
+    padding: 30px 0;
+  }
+
+  &__footer-copyright {
+    margin: 26px 0 0;
+  }
+}
+
+.sign-in {
+  &__container {
+    .user__form-group.register {
+      margin-top: 20px;
+    }
+  }
+
+  &__form-container {
+    padding-bottom: 50px;
+    border-bottom: 1px solid @bbs-divider;
+  }
+
+  &__buttons {
+    margin: 30px auto 0;
+
+    > * {
+      margin: 0 14px;
+    }
+
+    button.ant-btn-primary {
+      min-width: 89px;
+      border-color: @bbs-orange;
+      background-color: @bbs-orange;
+    }
+  }
+
+  &__buttons-link {
+    color: inherit;
+  }
+
+  &__label {
+    display: inline-block;
+    margin-bottom: 30px;
+  }
+}

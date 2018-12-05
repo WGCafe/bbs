@@ -1,0 +1,60 @@
+@import "./variables";
+
+*,
+body {
+  font-family: "Open Sans", "Helvetica Nenue", Helvetica, Arial, "Microsoft YaHei", sans-serif;
+}
+
+body, html, #content, .app {
+  height: 100%;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-middle {
+  vertical-align: middle;
+}
+
+.text-bottom {
+  vertical-align: bottom;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.media-top {
+  display: table-cell;
+  vertical-align: top;
+}
+
+.dot-icon {
+  span,
+  &:before,
+  &:after {
+    content: "";
+    vertical-align: middle;
+    display: inline-block;
+    margin: 0 2px;
+    border-radius: 50%;
+  }
+}
+
+.app {
+  > .ant-layout {
+    height: 100%;
+  }
+}
+
+@import './layouts/_header';
+@import './post';
+@import './message';
+@import './side-list';
+@import './user';

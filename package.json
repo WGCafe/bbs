@@ -2,7 +2,7 @@
   "name": "BBS",
   "version": "0.0.1",
   "description": "Front End application",
-  "repository": "https://git.otms.cn/opentrans/opentrans",
+  "repository": "https://github.com/WGCafe/bbs.git",
   "main": "./src/js/app.jsx",
   "scripts": {
     "start:api": "better-npm-run start:api",
@@ -45,6 +45,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.1.5",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
     "@babel/plugin-transform-runtime": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
@@ -85,6 +86,7 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
+    "antd": "^3.10.7",
     "console-polyfill": "^0.3.0",
     "media-match": "^2.0.3",
     "moment": "^2.10.6",

@@ -1,0 +1,51 @@
+@charset "utf-8";
+// 引入ant design 的样式
+@import "~antd/dist/antd.less";
+
+@primary-color: #0068f6;
+
+@text-color: #131924;
+@text-color-secondary: #424854;
+
+@layout-header-background: #fff;
+@layout-header-height: 60px;
+@layout-header-padding: 0 70px;
+
+@menu-item-color: @primary-color;
+@menu-highlight-color: @primary-color;
+
+@tabs-background: #fff;
+
+
+.ant-layout-header {
+  border-bottom: 1px solid @layout-body-background;
+}
+
+.ant-menu {
+  display: inline-block;
+}
+
+.ant-menu-horizontal > .ant-menu-item {
+  line-height: 60px;
+}
+
+.ant-menu-horizontal {
+  border-bottom-color: transparent;
+}
+
+.ant-menu-horizontal > .ant-menu-item:hover,
+.ant-menu-horizontal > .ant-menu-item-active,
+.ant-menu-horizontal > .ant-menu-item-open,
+.ant-menu-horizontal > .ant-menu-item-selected {
+  border-bottom-color: transparent;
+  font-weight: bold;
+}
+
+.ant-tabs-nav-wrap {
+  padding: 0 70px;
+  background-color: @tabs-background;
+}
+
+.ant-list-item-meta-description {
+  color: @text-color-secondary;
+}

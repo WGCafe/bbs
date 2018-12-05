@@ -1,0 +1,59 @@
+.header {
+  .ant-menu-horizontal {
+    margin-left: 100px;
+  }
+
+  .dot-icon {
+    display: block;
+    font-size: 0;
+
+    span,
+    &:before,
+    &:after {
+      width: 5px;
+      height: 5px;
+      background-color: @bbs-primary-color;
+    }
+  }
+
+  &__logo {
+    display: inline-block;
+    width: 200px;
+    height: 100%;
+    background-image: url(https://via.placeholder.com/200x60);
+    background-repeat: no-repeat;
+    background-size: 100 auto;
+    background-position: center center;
+  }
+}
+
+.operation {
+  float: right;
+  margin: 0 -10px;
+
+  > * {
+    margin: 0  10px;
+  }
+
+  &__search.ant-btn {
+    border: 0;
+    font-size: @font-big;
+    color: @bbs-primary-color;
+    outline: none;
+    box-shadow: none;
+  }
+}
+
+.operation-dropdown {
+  &__caret {
+    margin: 0 4px;
+    color: @bbs-light-blue;
+  }
+}
+
+.sub-header {
+  .ant-tabs-nav .ant-tabs-tab {
+    padding: 12px 10px;
+    margin: 0 20px 0 0;
+  }
+}

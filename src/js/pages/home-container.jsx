@@ -1,6 +1,7 @@
-import {Layout, Menu, Dropdown, Icon, Button, Tabs, List, Avatar, Row, Col} from 'antd';
+import {Layout, Icon, Tabs, List, Row, Col} from 'antd';
 import React, {Component} from 'react';
 import Header from '../layout/header.jsx';
+import PostList from '../components/post-list.jsx';
 
 import '../../styles/common.less';
 
@@ -15,20 +16,6 @@ class HomeContainer extends Component {
 
   render() {
     const TabPane = Tabs.TabPane;
-    const data = [
-      {
-        title: 'Ant Design Title 1'
-      },
-      {
-        title: 'Ant Design Title 2'
-      },
-      {
-        title: 'Ant Design Title 3'
-      },
-      {
-        title: 'Ant Design Title 4'
-      }
-    ];
     const data2 = [
       'Racing car sprays burning fuel into crowd.',
       'Japanese princess to wed commoner.',
@@ -46,39 +33,7 @@ class HomeContainer extends Component {
               <div className="post__container container">
                 <Row type="flex" justify="space-between" align="top" gutter={24}>
                   <Col span={17}>
-                    <List
-                      className="post__avatar-list"
-                      itemLayout="horizontal"
-                      dataSource={data}
-                      renderItem={item => (
-                        <List.Item className="post__item">
-                          <div class="ant-list-item-meta post__item-meta">
-                            <div class="ant-list-item-meta-avatar">
-                              <Avatar size={52} icon="user" />
-                            </div>
-                            <div className="post__rate">
-                              <Icon type="caret-up" />
-                              <span className="post__rate-number">200</span>
-                              <Icon type="caret-down" />
-                            </div>
-                            <div class="ant-list-item-meta-content">
-                              <h4 class="ant-list-item-meta-title"><a class="post__item-title" href="">{item.title}</a></h4>
-                              <div class="ant-list-item-meta-description">
-                                <div class="post__item-info">
-                                  <span class="text-middle">0 回复</span>
-                                  <i class="text-middle">•</i>
-                                  <span class="text-middle">4 小时前</span>
-                                  <span class="text-middle">来自 蓝鸭</span>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="ant-list-item-extra">
-                            <Icon type="star" theme="filled" />
-                          </div>
-                        </List.Item>
-                      )}
-                    />
+                    <PostList hasAvatar={true}/>
                   </Col>
                   <Col span={7}>
                     <List
@@ -107,33 +62,7 @@ class HomeContainer extends Component {
                       </div>
                       <h2 className="post__subtitle">询问</h2>
                     </div>
-                    <List
-                      className="post__has-header"
-                      itemLayout="horizontal"
-                      dataSource={data}
-                      renderItem={item => (
-                        <List.Item className="post__item">
-                          <div class="ant-list-item-meta post__item-meta">
-                            <div className="post__rate">
-                              <Icon type="caret-up" />
-                              <span className="post__rate-number">200</span>
-                              <Icon type="caret-down" />
-                            </div>
-                            <div class="ant-list-item-meta-content">
-                              <h4 class="ant-list-item-meta-title"><a class="post__item-title" href="">{item.title}</a></h4>
-                              <div class="ant-list-item-meta-description">
-                                <div class="post__item-info">
-                                  <span class="text-middle">0 回复</span>
-                                  <i class="text-middle">•</i>
-                                  <span class="text-middle">4 小时前</span>
-                                  <span class="text-middle">来自 蓝鸭</span>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </List.Item>
-                      )}
-                    />
+                    <PostList hasAvatar={false} />
                   </Col>
                   <Col span={7}>
                     <List

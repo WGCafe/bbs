@@ -11,6 +11,10 @@
     border-radius: 6px 6px 0 0;
   }
 
+  &__header  + .ant-list &__item:first-child {
+    border-radius: 0;
+  }
+
   &__subtitle {
     vertical-align: middle;
     display: inline-block;
@@ -51,7 +55,7 @@
     }
   }
 
-  .ant-list:not(.post__has-header) &__item:first-child {
+  &__item:first-child {
     border-radius: 6px 6px 0 0;
   }
 

@@ -1,4 +1,4 @@
-import {Layout, Menu, Dropdown, Icon, Button, Radio, Input} from 'antd';
+import {Layout, Button, Radio, Input} from 'antd';
 import React, {Component} from 'react';
 import Header from '../layout/header.jsx';
 import Footer from '../layout/footer.jsx';

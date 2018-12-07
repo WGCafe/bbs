@@ -1,7 +1,8 @@
-import {Layout, Icon, Tabs, List, Row, Col} from 'antd';
+import {Layout, Icon, Tabs, Row, Col} from 'antd';
 import React, {Component} from 'react';
 import Header from '../layout/header.jsx';
 import PostList from '../components/post-list.jsx';
+import SideList from '../components/side-list.jsx';
 
 import '../../styles/common.less';
 
@@ -16,13 +17,6 @@ class HomeContainer extends Component {
 
   render() {
     const TabPane = Tabs.TabPane;
-    const data2 = [
-      'Racing car sprays burning fuel into crowd.',
-      'Japanese princess to wed commoner.',
-      'Australian walks 100km after outback crash.',
-      'Man charged over missing wedding girl.',
-      'Los Angeles battles huge wildfires.'
-    ];
 
     return (
       <Layout className="layout">
@@ -36,18 +30,7 @@ class HomeContainer extends Component {
                     <PostList hasAvatar={true}/>
                   </Col>
                   <Col span={7}>
-                    <List
-                      className="side-list"
-                      split={false}
-                      header={<div><h2 className="side-list__title">Community Guidelines</h2></div>}
-                      dataSource={data2}
-                      renderItem={item => (
-                        <List.Item>
-                          <h4 className="side-list__item-title">Aenean euismod</h4>
-                          <p className="side-list__item-detail">{item}</p>
-                        </List.Item>
-                      )}
-                    />
+                    <SideList/>
                   </Col>
                 </Row>
               </div>
@@ -65,23 +48,11 @@ class HomeContainer extends Component {
                     <PostList hasAvatar={false} />
                   </Col>
                   <Col span={7}>
-                    <List
-                      className="side-list"
-                      split={false}
-                      header={<div><h2 className="side-list__title">Community Guidelines</h2></div>}
-                      dataSource={data2}
-                      renderItem={item => (
-                        <List.Item>
-                          <h4 className="side-list__item-title">Aenean euismod</h4>
-                          <p className="side-list__item-detail">{item}</p>
-                        </List.Item>
-                      )}
-                    />
+                    <SideList />
                   </Col>
                 </Row>
               </div>
             </TabPane>
-            <TabPane tab="Tab 3" key="3"></TabPane>
           </Tabs>
         </Content>
       </Layout>

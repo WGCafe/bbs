@@ -4,32 +4,21 @@ import {Icon, List, Avatar} from 'antd';
 import React, {Component} from 'react';
 
 class PostList extends Component {
-  componentWillMount() {}
-
-  componentWillReceiveProps() {}
+  constructor(props) {
+    super(props);
+  }
 
   render() {
-    const data = [
-      {
-        title: 'Ant Design Title 1'
-      },
-      {
-        title: 'Ant Design Title 2'
-      },
-      {
-        title: 'Ant Design Title 3'
-      },
-      {
-        title: 'Ant Design Title 4'
-      }
-    ];
-    const {isAll} = this.props;
+    const {
+      isAll,
+      postList
+    } = this.props;
 
     return (
       <List
         className={isAll ? 'post__avatar-list' : ''}
         itemLayout="horizontal"
-        dataSource={data}
+        dataSource={postList}
         renderItem={item => (
           <List.Item className="post__item">
             <div className="ant-list-item-meta post__item-meta">
@@ -40,16 +29,16 @@ class PostList extends Component {
                   </div>
                 ) : null
               }
-              <div className="post__rate">
+              {{/*<div className="post__rate">
                 <Icon type="caret-up" />
                 <span className="post__rate-number">200</span>
                 <Icon type="caret-down" />
-              </div>
+              </div>*/}}
               <div className="ant-list-item-meta-content">
                 <h4 className="ant-list-item-meta-title"><a className="post__item-title" href="">{item.title}</a></h4>
                 <div className="ant-list-item-meta-description">
                   <div className="post__item-info">
-                    <span className="text-middle">0 回复</span>
+                    <span className="text-middle">{item.comments_num} 回复</span>
                     <i className="text-middle">•</i>
                     <span className="text-middle">4 小时前</span>
                     <span className="text-middle">来自 蓝鸭</span>
@@ -68,7 +57,8 @@ class PostList extends Component {
 }
 
 PostList.propTypes = {
-  isAll: PropTypes.bool
+  isAll: PropTypes.bool,
+  postList: PropTypes.arrayOf(PropTypes.object)
 };
 
 export default PostList;

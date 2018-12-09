@@ -88,6 +88,7 @@
     "@babel/polyfill": "^7.0.0",
     "antd": "^3.10.7",
     "console-polyfill": "^0.3.0",
+    "joi-browser": "^13.4.0",
     "media-match": "^2.0.3",
     "moment": "^2.10.6",
     "mustache": "2.2.1",

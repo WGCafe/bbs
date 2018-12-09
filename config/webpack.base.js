@@ -208,6 +208,9 @@ module.exports = {
     dns: 'mock'
   },
   resolve: {
+    alias: {
+      joi: 'joi-browser' // 兼容joi-7.xx以上版本，使用ES6语法的问题
+    },
     extensions: ['.js', '.json', '.sass', '.scss', '.less', 'jsx']
   }
 };

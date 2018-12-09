@@ -40,8 +40,8 @@ class PostList extends Component {
                   <div className="post__item-info">
                     <span className="text-middle">{item.comments_num} 回复</span>
                     <i className="text-middle">•</i>
-                    <span className="text-middle">4 小时前</span>
-                    <span className="text-middle">来自 蓝鸭</span>
+                    <span className="text-middle">{item.comments_num} 小时前</span>
+                    <span className="text-middle">来自 {item.author}</span>
                   </div>
                 </div>
               </div>

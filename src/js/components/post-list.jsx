@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import {Icon, List, Avatar} from 'antd';
 import React, {Component} from 'react';
 
@@ -21,18 +23,18 @@ class PostList extends Component {
         title: 'Ant Design Title 4'
       }
     ];
-    const {hasAvatar} = this.props;
+    const {isAll} = this.props;
 
     return (
       <List
-        className={hasAvatar ? 'post__avatar-list' : ''}
+        className={isAll ? 'post__avatar-list' : ''}
         itemLayout="horizontal"
         dataSource={data}
         renderItem={item => (
           <List.Item className="post__item">
             <div className="ant-list-item-meta post__item-meta">
               {
-                hasAvatar ? (
+                isAll ? (
                   <div className="ant-list-item-meta-avatar">
                     <Avatar size={52} icon="user" />
                   </div>
@@ -65,6 +67,8 @@ class PostList extends Component {
   }
 }
 
-PostList.propTypes = {};
+PostList.propTypes = {
+  isAll: PropTypes.bool
+};
 
 export default PostList;

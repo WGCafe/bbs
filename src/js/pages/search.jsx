@@ -95,6 +95,6 @@ class Search extends Component {
   }
 }
 
-Search.PropTypes = {};
+Search.propTypes = {};
 
 export default Search;

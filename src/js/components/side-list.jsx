@@ -32,6 +32,6 @@ class SideList extends Component {
   }
 }
 
-SideList.PropTypes = {};
+SideList.propTypes = {};
 
 export default SideList;

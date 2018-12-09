@@ -87,13 +87,13 @@ class Message extends Component {
                   dataSource={data}
                   renderItem={item => (
                     <List.Item className="message__item active">
-                      <div class="ant-list-item-meta post__item-meta">
-                        <div class="ant-list-item-meta-content">
-                          <h4 class="ant-list-item-meta-title"><span>nancy hugo 回复了 </span><a class="post__item-title" href="">{item.title}</a></h4>
-                          <p class="message__content">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                          <div class="ant-list-item-meta-description">
-                            <div class="post__item-info">
-                              <span class="text-middle">4 小时前</span>
+                      <div className="ant-list-item-meta post__item-meta">
+                        <div className="ant-list-item-meta-content">
+                          <h4 className="ant-list-item-meta-title"><span>nancy hugo 回复了 </span><a className="post__item-title" href="">{item.title}</a></h4>
+                          <p className="message__content">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                          <div className="ant-list-item-meta-description">
+                            <div className="post__item-info">
+                              <span className="text-middle">4 小时前</span>
                             </div>
                           </div>
                         </div>

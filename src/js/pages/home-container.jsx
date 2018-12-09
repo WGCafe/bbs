@@ -1,5 +1,6 @@
-import {Layout, Icon, Tabs, Row, Col} from 'antd';
 import React, {Component} from 'react';
+
+import {Layout, Icon, Tabs, Row, Col} from 'antd';
 import Header from '../layout/header.jsx';
 import PostList from '../components/post-list.jsx';
 import SideList from '../components/side-list.jsx';
@@ -60,6 +61,6 @@ class HomeContainer extends Component {
   }
 }
 
-HomeContainer.PropTypes = {};
+HomeContainer.propTypes = {};
 
 export default HomeContainer;

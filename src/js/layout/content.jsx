@@ -1,12 +1,11 @@
 import {Layout} from 'antd';
 import React, {Component} from 'react';
-import Header from '../layout/header.jsx';
 
 import '../../styles/common.less';
 
 const {Content} = Layout;
 
-class HomeContainer extends Component {
+class MainContent extends Component {
   componentWillMount() {}
 
   componentWillReceiveProps() {}
@@ -22,6 +21,6 @@ class HomeContainer extends Component {
   }
 }
 
-HomeContainer.PropTypes = {};
+MainContent.propTypes = {};
 
-export default HomeContainer;
+export default MainContent;

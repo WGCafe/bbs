@@ -34,7 +34,7 @@ class Signin extends Component {
                   <Input size="large" placeholder="密码" />
                 </div>
                 <div className="sign-in__buttons user__form-group text-center">
-                  <Button class="text-bottom" size="large" type="primary">登录</Button>
+                  <Button className="text-bottom" size="large" type="primary">登录</Button>
                   <a className="sign-in__buttons-link text-bottom" href="">忘记密码</a>
                 </div>
               </form>
@@ -54,6 +54,6 @@ class Signin extends Component {
   }
 }
 
-Signin.PropTypes = {};
+Signin.propTypes = {};
 
 export default Signin;

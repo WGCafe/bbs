@@ -52,6 +52,6 @@ class Signup extends Component {
   }
 }
 
-Signup.PropTypes = {};
+Signup.propTypes = {};
 
 export default Signup;

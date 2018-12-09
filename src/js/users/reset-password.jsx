@@ -31,7 +31,7 @@ class ResetPassword extends Component {
                   <Input size="large" placeholder="邮箱" />
                 </div>
                 <div className="sign-in__buttons user__form-group text-center">
-                  <Button class="text-bottom" size="large" type="primary">提交</Button>
+                  <Button className="text-bottom" size="large" type="primary">提交</Button>
                 </div>
               </form>
             </div>
@@ -43,6 +43,6 @@ class ResetPassword extends Component {
   }
 }
 
-ResetPassword.PropTypes = {};
+ResetPassword.propTypes = {};
 
 export default ResetPassword;

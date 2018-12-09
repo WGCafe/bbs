@@ -53,6 +53,6 @@ class Header extends Component {
   }
 }
 
-Header.PropTypes = {};
+Header.propTypes = {};
 
 export default Header;

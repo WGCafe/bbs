@@ -53,10 +53,10 @@ class HomeContainer extends Component {
 }
 
 HomeContainer.propTypes = {
-  tabs: PropTypes.arrayOf({
+  tabs: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number,
     name: PropTypes.string
-  })
+  }))
 };
 
 HomeContainer.defaultProps = {

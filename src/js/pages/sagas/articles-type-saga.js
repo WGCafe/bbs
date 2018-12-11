@@ -1,5 +1,5 @@
 import {fork, all, take, call, put, actionChannel} from 'redux-saga/effects';
-import {handleApiErrorAction} from '../utils/bi-api-util';
+import {handleApiErrorAction} from '../../utils/api-util';
 
 import {getArticleTypeListSuccess} from '../actions/articles-type-actions';
 import {getArticleTypeList} from '../services/articles-type-service';

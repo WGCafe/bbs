@@ -1,6 +1,6 @@
 import {put, take, actionChannel, fork, all} from 'redux-saga/effects';
 
-import * as actions from '../actions/feedback-action';
+import * as actions from '../actions/feedback-actions';
 import FeedbackUtil from '../../utils/feedback-util';
 
 export default function* root() {

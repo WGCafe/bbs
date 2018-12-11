@@ -1,6 +1,6 @@
 import {combineReducers} from 'redux';
 
-import {ADD_MESSAGE, CLEAR_MESSAGE, SHOW_MODAL} from '../actions/feedback-action';
+import {ADD_MESSAGE, CLEAR_MESSAGE, SHOW_MODAL} from '../actions/feedback-actions';
 
 const rootReducers = combineReducers({
   messageInfo,

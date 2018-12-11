@@ -19,6 +19,18 @@ class CommonUtil {
     return parentDoc !== null;
   }
 
+  static getCookie(cookieString, cookieName) {
+    let cookieArray = cookieString.split(';');
+
+    for (let i = 0; i < cookieArray.length; i++) {
+      let currentCookie = cookieArray[i].split('=');
+
+      if(currentCookie[0].trim() == cookieName) {
+        return currentCookie[1];
+      }
+    }
+  }
+
   static getTokenId() {
     const windowObj = this.getWindowObj();
     let cookieString = windowObj.document.cookie;

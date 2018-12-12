@@ -1,12 +1,12 @@
 import {fork, all, take, call, put, actionChannel} from 'redux-saga/effects';
 import {handleApiErrorAction} from '../../utils/api-util';
 
-import {getArticleTypeListSuccess} from '../actions/articles-type-actions';
-import {getArticleTypeList} from '../services/articles-type-service';
+import {getArticleTypeListSuccess} from '../actions/article-type-actions';
+import {getArticleTypeList} from '../services/article-type-services';
 import Constants from '../../utils/constants';
 
 const {
-  GET_ARTICLES_TYPE_LIST
+  GET_ARTICLE_TYPE_LIST
 } = Constants.ACTIONS_NAME;
 
 export default function* root() {
@@ -16,7 +16,7 @@ export default function* root() {
 }
 
 function* watchGetArticleTypeList() {
-  const getArticleTypeListAction = yield actionChannel(GET_ARTICLES_TYPE_LIST);
+  const getArticleTypeListAction = yield actionChannel(GET_ARTICLE_TYPE_LIST);
 
   while (true) {
     const req = yield take(getArticleTypeListAction);

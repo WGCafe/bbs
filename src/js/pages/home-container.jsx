@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {getArticleTypeList} from './actions/articles-type-actions';
+import {getArticleTypeList} from './actions/article-type-actions';
+import {getArticleList} from './actions/article-actions';
 
 import React, {Component} from 'react';
 import {Tabs, Row, Col} from 'antd';
@@ -115,5 +116,6 @@ export default connect(({articlesType}) => {
     tabs: articlesType.articleTypeList
   };
 }, {
-  getArticleTypeList
+  getArticleTypeList,
+  getArticleList
 })(HomeContainer);

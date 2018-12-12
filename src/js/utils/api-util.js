@@ -35,6 +35,11 @@ class ApiUtil {
       /* ArticleType */
       getArticleTypeList: {
         path: 'articletype/'
+      },
+
+      /* Article */
+      getArticleList: {
+        path: 'articles/'
       }
     };
   }

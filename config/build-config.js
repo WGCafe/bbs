@@ -12,7 +12,7 @@ module.exports = {
   // 在API Server 反向代理配置
   isRemoteProxy: false,
   // webpack proxy context， 包括API，以及不同project的重定向
-  proxyPathPrefix: ['/'],
+  proxyPathPrefix: ['/api'],
   remoteProxy: 'remoteIP',
   token: 'rx44w6x63qnz8i3jr2x9jm1c',
 

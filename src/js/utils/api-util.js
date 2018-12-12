@@ -34,7 +34,7 @@ class ApiUtil {
     return {
       /* Subscribe */
       getArticleTypeList: {
-        path: 'articletype/'
+        path: '/api/articletype/'
       }
     };
   }

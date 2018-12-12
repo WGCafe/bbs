@@ -32,9 +32,9 @@ export function handleApiErrorAction(error) {
 class ApiUtil {
   static get API_INFO() {
     return {
-      /* Subscribe */
+      /* ArticleType */
       getArticleTypeList: {
-        path: '/api/articletype/'
+        path: 'articletype/'
       }
     };
   }

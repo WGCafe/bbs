@@ -5,10 +5,9 @@ const {
   ARTICLES_TYPE_LIST
 } = Constants.ACTIONS_NAME;
 
-export function getArticleTypeList(data) {
+export function getArticleTypeList() {
   return {
-    type: GET_ARTICLES_TYPE_LIST,
-    data
+    type: GET_ARTICLES_TYPE_LIST
   };
 }
 

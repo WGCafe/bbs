@@ -78,7 +78,7 @@ function _fetch(url, options) {
   }).then((data) => {
     return new Promise(function(resolve, reject) {
 
-      if (!data.status || data.status === 200) {
+      if (!data.status || data.status === 200 || data.status === 1000) {
         resolve(data);
       } else {
         reject({status: data.status});

@@ -9,7 +9,7 @@ const router = Express.Router();
  * 模块中间件
  */
 
-router.use('/api/articles', require('./articles'));
-router.use('/api/articletype', require('./articletype'));
+router.use('/articles', require('./articles'));
+router.use('/articletype', require('./articletype'));
 
 module.exports = router;

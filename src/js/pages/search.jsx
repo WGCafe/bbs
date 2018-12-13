@@ -1,6 +1,5 @@
 import {Layout, Menu, Dropdown, Icon, Button, List, Row, Col} from 'antd';
 import React, {Component} from 'react';
-import '../../styles/common.less';
 
 const {
   Header,

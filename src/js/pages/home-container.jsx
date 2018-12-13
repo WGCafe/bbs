@@ -1,4 +1,7 @@
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
+import {getArticleTypeList} from './actions/article-type-actions';
+import {getArticleList} from './actions/article-actions';
 
 import React, {Component} from 'react';
 import {Tabs, Row, Col} from 'antd';
@@ -16,6 +19,10 @@ class HomeContainer extends Component {
     };
 
     this.handleTabClick = this.handleTabClick.bind(this);
+  }
+
+  componentWillMount() {
+    this.props.getArticleTypeList();
   }
 
   fetchCurrentPostList() {
@@ -101,31 +108,14 @@ HomeContainer.propTypes = {
 };
 
 HomeContainer.defaultProps = {
-  tabs: [{
-    id: 1,
-    name: "讨论"
-  },
-  {
-    id: 2,
-    name: "询问"
-  },
-  {
-    id: 3,
-    name: "记录"
-  },
-  {
-    id: 4,
-    name: "牙套"
-  },
-  {
-    id: 5,
-    name: "智齿"
-  },
-  {
-    id: 6,
-    name: "种植"
-  }],
   postList: []
 };
 
-export default HomeContainer;
+export default connect(({articlesType}) => {
+  return {
+    tabs: articlesType.articleTypeList
+  };
+}, {
+  getArticleTypeList,
+  getArticleList
+})(HomeContainer);

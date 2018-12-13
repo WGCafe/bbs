@@ -5,7 +5,9 @@ import {
   Switch,
   Redirect
 } from 'react-router-dom';
+import {Provider} from 'react-redux';
 import Loadable from 'react-loadable';
+import configStore from './root/config-store';
 
 const HomeContainer = Loadable({
   loader: () => import('./pages/home-container.jsx'),
@@ -43,23 +45,27 @@ const PageNoFound = () => (
   </div>
 );
 
+const store = configStore();
+
 export default class Routers extends React.Component {
 
   render() {
     return (
-      <Router>
-        <Switch>
-          <Route path="/home" component={HomeContainer} />
-          <Route path="/message" component={Message} />
-          <Route path="/search" component={Search} />
-          <Route path="/signup" component={Signup} />
-          <Route path="/login" component={Signin} />
-          <Route path="/reset-password" component={ResetPassword} />
-          <Route path="/404" component={PageNoFound} />
-          <Redirect exact path="/" to="/home" />
-          <Redirect from="*" to="/404" />
-        </Switch>
-      </Router>
+      <Provider store={store}>
+        <Router>
+          <Switch>
+            <Route path="/home" component={HomeContainer} />
+            <Route path="/message" component={Message} />
+            <Route path="/search" component={Search} />
+            <Route path="/signup" component={Signup} />
+            <Route path="/login" component={Signin} />
+            <Route path="/reset-password" component={ResetPassword} />
+            <Route path="/404" component={PageNoFound} />
+            <Redirect exact path="/" to="/home" />
+            <Redirect from="*" to="/404" />
+          </Switch>
+        </Router>
+      </Provider>
     );
   }
 }

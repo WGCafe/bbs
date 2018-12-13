@@ -88,6 +88,8 @@
     "@babel/polyfill": "^7.0.0",
     "antd": "^3.10.7",
     "console-polyfill": "^0.3.0",
+    "es6-promise": "^4.2.5",
+    "isomorphic-fetch": "^2.2.1",
     "joi-browser": "^13.4.0",
     "media-match": "^2.0.3",
     "moment": "^2.10.6",
@@ -104,8 +106,8 @@
     "react-validation": "^3.0.7",
     "redux": "^3.6.0",
     "redux-saga": "^0.16.0",
-    "underscore": "^1.8.3",
     "validator": "^10.9.0",
+    "underscore": "^1.9.1",
     "whatwg-fetch": "^3.0.0"
   }
 }

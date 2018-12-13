@@ -3,6 +3,12 @@ import PropTypes from 'prop-types';
 import {Icon, List, Avatar} from 'antd';
 import React, {Component} from 'react';
 
+/*<div className="post__rate">
+  <Icon type="caret-up" />
+  <span className="post__rate-number">200</span>
+  <Icon type="caret-down" />
+</div>*/
+
 class PostList extends Component {
   constructor(props) {
     super(props);
@@ -32,11 +38,6 @@ class PostList extends Component {
                     </div>
                   ) : null
                 }
-                {{/*<div className="post__rate">
-                  <Icon type="caret-up" />
-                  <span className="post__rate-number">200</span>
-                  <Icon type="caret-down" />
-                </div>*/}}
                 <div className="ant-list-item-meta-content">
                   <h4 className="ant-list-item-meta-title"><a className="post__item-title" href="">{item.title}</a></h4>
                   <div className="ant-list-item-meta-description">

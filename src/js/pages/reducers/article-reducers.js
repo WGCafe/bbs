@@ -2,12 +2,12 @@ import {combineReducers} from 'redux';
 import Constants from '../../utils/constants';
 
 const {
-  ARTICLES_LIST
+  ARTICLE_LIST
 } = Constants.ACTIONS_NAME;
 
 function articleList(state = [], action) {
   switch (action.type) {
-    case ARTICLES_LIST:
+    case ARTICLE_LIST:
       return action.data;
     default:
       return state;

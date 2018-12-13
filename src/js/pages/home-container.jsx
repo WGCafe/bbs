@@ -27,26 +27,21 @@ class HomeContainer extends Component {
     this.props.getArticleTypeList();
   }
 
-  componentDidUpdate() {
+  componentWillReceiveProps(nextProps) {
     const {tabs} = this.props;
+    const {tabs: nextTabs} = nextProps;
     const {
       page,
       activeKey
     } = this.state;
 
-    if (!tabs.length) {
-      return;
+    if (nextTabs.length && tabs.length !== nextTabs.length) {
+      this.props.getArticleList({
+        page,
+        page_size: PAGE_SIZE,
+        category: activeKey
+      });
     }
-
-    this.props.getArticleList({
-      page,
-      page_size: PAGE_SIZE,
-      category: activeKey
-    });
-  }
-
-  fetchCurrentPostList() {
-    //TODO add active key list action
   }
 
   handleTabClick(activeKey) {
@@ -127,13 +122,13 @@ HomeContainer.propTypes = {
   postList: PropTypes.arrayOf(PropTypes.object)
 };
 
-HomeContainer.defaultProps = {
-  postList: []
-};
-
-export default connect(({articlesType}) => {
+export default connect(({
+  articleType,
+  article
+}) => {
   return {
-    tabs: articlesType.articleTypeList
+    tabs: articleType.articleTypeList,
+    postList: article.articleList
   };
 }, {
   getArticleTypeList,

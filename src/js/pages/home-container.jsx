@@ -30,22 +30,36 @@ class HomeContainer extends Component {
   componentWillReceiveProps(nextProps) {
     const {tabs} = this.props;
     const {tabs: nextTabs} = nextProps;
+
+    if (nextTabs.length && JSON.stringify(tabs) !== JSON.stringify(nextTabs)) {
+      this.getArticleList();
+    }
+  }
+
+  getArticleList() {
+    const {tabs} = this.props;
     const {
       page,
       activeKey
     } = this.state;
+    const options = {
+      page,
+      page_size: PAGE_SIZE
+    };
 
-    if (nextTabs.length && tabs.length !== nextTabs.length) {
-      this.props.getArticleList({
-        page,
-        page_size: PAGE_SIZE,
+    if (activeKey !== 0 || activeKey !== (tabs.length - 1)) {
+      Object.assign(options, {
         category: activeKey
       });
+    }
+
+    if (activeKey !== (tabs.length - 1)) {
+      this.props.getArticleList(options);
     }
   }
 
   handleTabClick(activeKey) {
-    this.fetchCurrentPostList();
+    this.getArticleList();
     this.setState({activeKey});
   }
 

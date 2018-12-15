@@ -68,7 +68,11 @@ class HomeContainer extends Component {
       return null;
     }
 
-    const {postList} = this.props;
+    const {
+      tabs,
+      postList,
+      collections
+    } = this.props;
     const {activeKey} = this.state;
 
     return (
@@ -78,7 +82,7 @@ class HomeContainer extends Component {
             <Col span={17}>
               {
                 activeKey === tabOptions.currentKey ? (
-                  <PostList postList={postList} isAll={true}/>
+                  <PostList postList={activeKey === (tabs.length - 1) ? collections : postList} isAll={true}/>
                 ) : null
               }
             </Col>
@@ -133,7 +137,12 @@ HomeContainer.propTypes = {
     id: PropTypes.number,
     name: PropTypes.string
   })),
-  postList: PropTypes.arrayOf(PropTypes.object)
+  postList: PropTypes.arrayOf(PropTypes.object),
+  collections: PropTypes.arrayOf(PropTypes.object)
+};
+
+HomeContainer.defaultProps = {
+  collections: []
 };
 
 export default connect(({

@@ -42,6 +42,11 @@ class ApiUtil {
       /* Article */
       getArticleList: {
         path: 'articles/'
+      },
+
+      /* Collection */
+      getCollectionList: {
+        path: 'operation/'
       }
     };
   }

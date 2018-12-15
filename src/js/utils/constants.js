@@ -7,7 +7,11 @@ class Constants {
 
       /* Article */
       GET_ARTICLE_LIST: 'GET_ARTICLE_LIST',
-      ARTICLE_LIST: 'ARTICLE_LIST'
+      ARTICLE_LIST: 'ARTICLE_LIST',
+
+      /* COLLECTION */
+      GET_COLLECTION_LIST: 'GET_COLLECTION_LIST',
+      COLLECTION_LIST: 'COLLECTION_LIST'
     };
   }
 }

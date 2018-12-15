@@ -9,13 +9,15 @@ import LayoutContainer from '../layout/container.jsx';
 import PostList from '../components/post-list.jsx';
 
 const {TabPane} = Tabs;
+const PAGE_SIZE = 20;
 
 class HomeContainer extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      activeKey: "0"
+      activeKey: "0",
+      page: 1
     };
 
     this.handleTabClick = this.handleTabClick.bind(this);
@@ -25,8 +27,21 @@ class HomeContainer extends Component {
     this.props.getArticleTypeList();
   }
 
-  fetchCurrentPostList() {
-    //TODO add active key list action
+  componentWillReceiveProps(nextProps) {
+    const {tabs} = this.props;
+    const {tabs: nextTabs} = nextProps;
+    const {
+      page,
+      activeKey
+    } = this.state;
+
+    if (nextTabs.length && tabs.length !== nextTabs.length) {
+      this.props.getArticleList({
+        page,
+        page_size: PAGE_SIZE,
+        category: activeKey
+      });
+    }
   }
 
   handleTabClick(activeKey) {
@@ -107,13 +122,13 @@ HomeContainer.propTypes = {
   postList: PropTypes.arrayOf(PropTypes.object)
 };
 
-HomeContainer.defaultProps = {
-  postList: []
-};
-
-export default connect(({articlesType}) => {
+export default connect(({
+  articleType,
+  article
+}) => {
   return {
-    tabs: articlesType.articleTypeList
+    tabs: articleType.articleTypeList,
+    postList: article.articleList
   };
 }, {
   getArticleTypeList,

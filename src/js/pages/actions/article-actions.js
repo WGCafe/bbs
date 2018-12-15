@@ -5,10 +5,10 @@ const {
   ARTICLE_LIST
 } = Constants.ACTIONS_NAME;
 
-export function getArticleList(payload) {
+export function getArticleList(options) {
   return {
     type: GET_ARTICLE_LIST,
-    payload
+    options
   };
 }
 

@@ -5,7 +5,7 @@ import articleReducer from '../pages/reducers/article-reducers';
 
 const rootReducers = combineReducers({
   feedback: feedbackReducer,
-  articlesType: articleTypeReducer,
+  articleType: articleTypeReducer,
   article: articleReducer
 });
 

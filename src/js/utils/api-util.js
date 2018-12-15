@@ -1,6 +1,8 @@
+import pathToRegexp from 'path-to-regexp';
+import _ from 'underscore';
+
 import FeedbackUtil from '../utils/feedback-util';
 import {handleApiError} from '../common/actions/feedback-actions';
-
 
 export function handleApiErrorAction(error) {
   const {status} = error;
@@ -50,6 +52,50 @@ class ApiUtil {
     }
 
     return false;
+  }
+
+  /**
+   * example
+   * pathInfo: {path: '/user/:id', moduleType: 'xx'}
+   * keys: {id: '122'}
+   * queryParams: {key: value}
+   *
+   * return {path: '/user/122?key=value', moduleType}
+   *
+   * @param {*} path
+   * @param {*} keys
+   * @param {*} queryParams
+   */
+  static assemblePath(pathInfo, keys, queryParams) {
+    const {path, ...others} = pathInfo;
+
+    let result = path;
+
+    try {
+      const toPath = pathToRegexp.compile(path);
+
+      result = toPath(keys);
+
+      if (queryParams && _.isObject(queryParams)) {
+        let query = Object.keys(queryParams)
+          .filter(key => queryParams[key])
+          .map(key => `${key}=${queryParams[key]}`)
+          .join('&');
+
+        result = `${result}?${query}`;
+      }
+    } catch (error) {
+      if (__DEV__) {
+        /* eslint-disable */
+        console.error(`path: '${path}'`, error);
+        /* eslint-enable */
+      }
+    }
+
+    return {
+      path: result,
+      ...others
+    };
   }
 }
 

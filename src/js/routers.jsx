@@ -8,6 +8,7 @@ import {
 import {Provider} from 'react-redux';
 import Loadable from 'react-loadable';
 import configStore from './root/config-store';
+// import Feedback from './common/components/feedback.jsx';
 
 const HomeContainer = Loadable({
   loader: () => import('./pages/home-container.jsx'),
@@ -64,6 +65,7 @@ export default class Routers extends React.Component {
             <Redirect exact path="/" to="/home" />
             <Redirect from="*" to="/404" />
           </Switch>
+          {/* <Feedback onActions={OnApiErrorAction} /> */}
         </Router>
       </Provider>
     );

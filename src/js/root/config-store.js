@@ -1,6 +1,6 @@
 import {createStore, applyMiddleware, compose} from 'redux';
 import createSagaMiddleware from 'redux-saga';
-import rootReducer from './root-reducer';
+import rootReducers from './root-reducer';
 import rootSaga from './root-saga';
 
 import CommonUtil from '../utils/common-util';
@@ -17,7 +17,7 @@ if (!__DEV__) {
 
 export default () => {
   const store = createStore(
-    rootReducer,
+    rootReducers,
     composeEnhancers(applyMiddleware(sagaMiddleware))
   );
 

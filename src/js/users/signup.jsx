@@ -3,9 +3,11 @@ import Form from 'react-validation/build/form';
 import Input from 'react-validation/build/input';
 import Button from 'react-validation/build/button';
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import Header from '../layout/header.jsx';
 import Footer from '../layout/footer.jsx';
 import {required, email, minLength} from '../utils/validation.jsx';
+import {userSignUp} from '../pages/actions/user-actions';
 
 import '../../styles/common.less';
 
@@ -27,7 +29,7 @@ class Signup extends Component {
             <h2 className="user__title text-center">注册</h2>
 
             <div className="user__form">
-              <Form>
+              <Form action="">
                 <div className="user__form-group">
                   <label>
                     用户名
@@ -35,6 +37,7 @@ class Signup extends Component {
                       size="large"
                       name="username"
                       placeholder="用户名"
+                      className="ant-input ant-input-lg"
                       validations={[required]}
                     />
                   </label>
@@ -45,6 +48,7 @@ class Signup extends Component {
                     <Input
                       name="email"
                       placeholder="邮箱"
+                      className="ant-input ant-input-lg"
                       validations={[required, email]}
                     />
                   </label>
@@ -56,34 +60,22 @@ class Signup extends Component {
                       type="password"
                       name="password"
                       minLength={6}
+                      className="ant-input ant-input-lg"
                       validations={[required, minLength]}
                     />
                   </label>
                 </div>
-                <div>
-                  <Button>Submit</Button>
+                <div
+                  className="user__form-group register text-center"
+                >
+                  <Button
+                    className="ant-btn ant-btn-primary ant-btn-lg"
+                    onClick={this.propr.userSignUp()}
+                  >
+                    <span>Submit</span>
+                  </Button>
                 </div>
               </Form>
-              {/* <form action="">
-                <div className="user__form-group">
-                  <Input size="large" placeholder="用户名" />
-                </div>
-                <div className="user__form-group">
-                  <Input size="large" placeholder="邮箱" />
-                </div>
-                <div className="user__form-group">
-                  <Input size="large" placeholder="密码" />
-                </div>
-                <div className="user__form-group">
-                  <Radio>我是牙医</Radio>
-                </div>
-                <div className="user__form-group">
-                  <Input size="large" placeholder="所在机构／单位（选填）" />
-                </div>
-                <div className="user__form-group register text-center">
-                  <Button size="large" type="primary">注册</Button>
-                </div>
-              </form> */}
             </div>
           </div>
           <Footer />
@@ -95,4 +87,14 @@ class Signup extends Component {
 
 Signup.propTypes = {};
 
-export default Signup;
+export default connect(({
+  // articleType,
+  // article
+}) => {
+  return {
+    // tabs: articleType.articleTypeList,
+    // postList: article.articleList
+  };
+}, {
+  userSignUp
+})(Signup);

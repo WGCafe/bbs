@@ -2,7 +2,7 @@ import {fork, all, take, call, put, actionChannel} from 'redux-saga/effects';
 import {handleApiErrorAction} from '../../utils/api-util';
 
 import {getCollectionListSuccess} from '../actions/operation-actions';
-import {getCollectionList} from '../services/article-type-services';
+import {getCollectionList} from '../services/operation-services';
 import Constants from '../../utils/constants';
 
 const {

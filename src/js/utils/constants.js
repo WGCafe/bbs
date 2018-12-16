@@ -14,6 +14,17 @@ class Constants {
       COLLECTION_LIST: 'COLLECTION_LIST'
     };
   }
+
+  static get OPERATION_TYPES() {
+    return [
+      '转发',
+      '收藏',
+      '感谢',
+      '评论',
+      '回复',
+      '举报'
+    ];
+  }
 }
 
 export default Constants;

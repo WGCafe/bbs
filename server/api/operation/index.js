@@ -9,27 +9,47 @@ router.get('/', function (req, res) {
       [
         {
           "id": 1,
-          "name": "讨论"
+          "author": {
+            "nick_name": null,
+            "gender": "female",
+            "birthday": null,
+            "email": "ninini@gmail.com",
+            "mobile": null,
+            "face_image": null,
+            "address": null
+          },
+          "title": "nininii",
+          "content": "test",
+          "click_num": 0,
+          "thanks_num": 0,
+          "fav_num": 0,
+          "forwarding_num": 0,
+          "comments_num": 0,
+          "create_time": "2018-12-10T21:28:08",
+          "update_time": null,
+          "article_type": 1
         },
         {
           "id": 2,
-          "name": "询问"
-        },
-        {
-          "id": 3,
-          "name": "牙医"
-        },
-        {
-          "id": 4,
-          "name": "牙套"
-        },
-        {
-          "id": 5,
-          "name": "智齿"
-        },
-        {
-          "id": 6,
-          "name": "种植"
+          "author": {
+            "nick_name": null,
+            "gender": "female",
+            "birthday": null,
+            "email": "ninini@gmail.com",
+            "mobile": null,
+            "face_image": null,
+            "address": null
+          },
+          "title": "nininii",
+          "content": "test",
+          "click_num": 0,
+          "thanks_num": 0,
+          "fav_num": 0,
+          "forwarding_num": 0,
+          "comments_num": 0,
+          "create_time": "2018-12-10T21:28:08",
+          "update_time": null,
+          "article_type": 1
         }
       ]
     );

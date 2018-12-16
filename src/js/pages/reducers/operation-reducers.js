@@ -2,7 +2,8 @@ import {combineReducers} from 'redux';
 import Constants from '../../utils/constants';
 
 const {
-  COLLECTION_LIST
+  COLLECTION_LIST,
+  SUBMITED_COLLECTION
 } = Constants.ACTIONS_NAME;
 
 function collectionList(state = [], action) {
@@ -14,8 +15,18 @@ function collectionList(state = [], action) {
   }
 }
 
+function collectionStatus(state = [], action) {
+  switch (action.type) {
+    case SUBMITED_COLLECTION:
+      return action.data;
+    default:
+      return state;
+  }
+}
+
 const common = combineReducers({
-  collectionList
+  collectionList,
+  collectionStatus
 });
 
 export default function root(state, action) {

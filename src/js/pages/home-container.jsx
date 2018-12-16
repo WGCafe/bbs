@@ -42,10 +42,12 @@ class HomeContainer extends Component {
       page,
       activeKey
     } = this.state;
+    /*eslint-disable */
     const options = {
       page,
       page_size: PAGE_SIZE
     };
+    /*eslint-enable */
 
     if (activeKey !== 0 || activeKey !== (tabs.length - 1)) {
       Object.assign(options, {

@@ -40,6 +40,11 @@ const ResetPassword = Loadable({
   loading: () => null
 });
 
+const Article = Loadable({
+  loader: () => import('./pages/article.jsx'),
+  loading: () => null
+});
+
 const PageNoFound = () => (
   <div>
     {'Page No Found'}
@@ -61,6 +66,7 @@ export default class Routers extends React.Component {
             <Route path="/signup" component={Signup} />
             <Route path="/login" component={Signin} />
             <Route path="/reset-password" component={ResetPassword} />
+            <Route path="/article" component={Article} />
             <Route path="/404" component={PageNoFound} />
             <Redirect exact path="/" to="/home" />
             <Redirect from="*" to="/404" />

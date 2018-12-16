@@ -1,0 +1,111 @@
+@import "./variables";
+
+.article {
+  &__container {
+    padding: 30px;
+  }
+}
+
+.article-topic {
+  height: 82px;
+  border-bottom: 1px solid @bbs-lightest-gray;
+  position: relative;
+  padding: 0 40px;
+
+  &__wrapper {
+    background: @bbs-white;
+  }
+
+  &__img {
+    height: 52px;
+    width: 52px;
+    border-radius: 50%;
+    background: #000;
+    position: absolute;
+    left: -26px;
+    top: 15px;
+  }
+
+  &__readed {
+    color: @bbs-primary-color;
+
+    &:before {
+
+    }
+  }
+
+  &__title {
+    color: @bba-light-black;
+    font-weight: 500;
+  }
+
+  &__comment {
+    padding: 16px 37px 33px 43px;
+    overflow: hidden;
+
+    &-tip {
+      float: right;
+      color: @bbs-primary-color;
+      font-size: @font-small;
+      font-weight: 500;
+    }
+  }
+}
+
+.article-comment {
+  &__item {
+    background: @bbs-white;
+    border-top: 1px solid @bbs-lightest-gray;
+
+    .ant-list-item-content {
+      display: block;
+    }
+  }
+
+  &__img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: @bba-light-black;
+  }
+
+  &__ul {
+    list-style-type: none;
+    padding-left: 18px;
+    display: inline-block;
+
+    li {
+      display: inline;
+    }
+  }
+
+  &__p {
+    padding: 0 73px;
+  }
+}
+
+.article-upload {
+  height: 180px;
+  background: @bbs-white;
+
+  &__textarea {
+    height: 88px;
+    margin: 0 43px;
+    border: 1px solid @bbs-lightest-gray;
+  }
+
+  &__input.ant-input {
+    border: none;
+    height: 65px;
+  }
+
+  &__button {
+    height: 40px;
+    width: 100px;
+    margin: 25px 0 25px 43px;
+
+    span {
+      color: @bbs-primary-color;
+    }
+  }
+}

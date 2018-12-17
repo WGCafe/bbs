@@ -11,5 +11,6 @@ const router = Express.Router();
 
 router.use('/articles', require('./articles'));
 router.use('/articletype', require('./articletype'));
+router.use('/operation', require('./operation'));
 
 module.exports = router;

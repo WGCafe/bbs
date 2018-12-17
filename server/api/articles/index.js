@@ -32,6 +32,28 @@ router.get('/', function (req, res) {
             "create_time": "2018-12-10T21:28:08",
             "update_time": null,
             "article_type": 1
+          },
+          {
+            "id": 2,
+            "author": {
+              "nick_name": null,
+              "gender": "female",
+              "birthday": null,
+              "email": "test@gmail.com",
+              "mobile": null,
+              "face_image": null,
+              "address": null
+            },
+            "title": "test",
+            "content": "test",
+            "click_num": 0,
+            "thanks_num": 0,
+            "fav_num": 0,
+            "forwarding_num": 0,
+            "comments_num": 0,
+            "create_time": "2018-12-10T21:28:08",
+            "update_time": null,
+            "article_type": 1
           }
         ]
       }

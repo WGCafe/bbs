@@ -2,14 +2,18 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {getArticleTypeList} from './actions/article-type-actions';
 import {getArticleList} from './actions/article-actions';
+import {getCollectionList} from './actions/operation-actions';
+import Constants from '../utils/constants';
 
 import React, {Component} from 'react';
 import {Tabs, Row, Col} from 'antd';
 import LayoutContainer from '../layout/container.jsx';
 import PostList from '../components/post-list.jsx';
 
+const {OPERATION_TYPES} = Constants;
 const {TabPane} = Tabs;
 const PAGE_SIZE = 20;
+const COLLECTION_TYPE_NAME = '收藏';
 
 class HomeContainer extends Component {
   constructor(props) {
@@ -30,22 +34,54 @@ class HomeContainer extends Component {
   componentWillReceiveProps(nextProps) {
     const {tabs} = this.props;
     const {tabs: nextTabs} = nextProps;
+
+    if (nextTabs.length && JSON.stringify(tabs) !== JSON.stringify(nextTabs)) {
+      this.getArticleListData();
+    }
+  }
+
+  getArticleListData() {
     const {
       page,
       activeKey
     } = this.state;
+    const options = {
+      page,
+      page_size: PAGE_SIZE
+    };
 
-    if (nextTabs.length && tabs.length !== nextTabs.length) {
-      this.props.getArticleList({
-        page,
-        page_size: PAGE_SIZE,
+    if (activeKey !== 0) {
+      Object.assign(options, {
         category: activeKey
+      });
+    }
+
+    this.props.getArticleList(options);
+  }
+
+  getCollectionListData() {
+    if (!OPERATION_TYPES || !COLLECTION_TYPE_NAME) {
+      return;
+    }
+
+    const cllectionIndex = OPERATION_TYPES.findIndex(item => item === COLLECTION_TYPE_NAME);
+
+    if (cllectionIndex !== -1) {
+      this.props.getCollectionList({
+        operation_type: cllectionIndex
       });
     }
   }
 
   handleTabClick(activeKey) {
-    this.fetchCurrentPostList();
+    const {tabs} = this.props;
+
+    if (Number(activeKey) !== Number(tabs.length + 1)) {
+      this.getArticleListData();
+    } else {
+      this.getCollectionListData();
+    }
+
     this.setState({activeKey});
   }
 
@@ -54,7 +90,11 @@ class HomeContainer extends Component {
       return null;
     }
 
-    const {postList} = this.props;
+    const {
+      tabs,
+      postList,
+      collections
+    } = this.props;
     const {activeKey} = this.state;
 
     return (
@@ -64,7 +104,7 @@ class HomeContainer extends Component {
             <Col span={17}>
               {
                 activeKey === tabOptions.currentKey ? (
-                  <PostList postList={postList} isAll={true}/>
+                  <PostList postList={Number(activeKey) !== Number(tabs.length + 1) ? postList : collections} isAll={true}/>
                 ) : null
               }
             </Col>
@@ -119,18 +159,28 @@ HomeContainer.propTypes = {
     id: PropTypes.number,
     name: PropTypes.string
   })),
-  postList: PropTypes.arrayOf(PropTypes.object)
+  postList: PropTypes.arrayOf(PropTypes.object),
+  collections: PropTypes.arrayOf(PropTypes.object)
+};
+
+HomeContainer.defaultProps = {
+  tabs: [],
+  postList: [],
+  collections: []
 };
 
 export default connect(({
   articleType,
-  article
+  article,
+  operation
 }) => {
   return {
     tabs: articleType.articleTypeList,
-    postList: article.articleList
+    postList: article.articleList,
+    collections: operation.collectionList
   };
 }, {
   getArticleTypeList,
-  getArticleList
+  getArticleList,
+  getCollectionList
 })(HomeContainer);

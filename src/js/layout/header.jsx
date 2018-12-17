@@ -11,7 +11,9 @@ class Header extends Component {
   render() {
     const menu = (
       <Menu>
-        <Menu.Item key="3" disabled>2 新消息</Menu.Item>
+        <Menu.Item key="3">
+          <a target="_blank" rel="noopener noreferrer" href="#/message">2 新消息</a>
+        </Menu.Item>
         <Menu.Divider />
         <Menu.Item key="0">
           <a target="_blank" rel="noopener noreferrer" href="http://www.alipay.com/">编辑个人资料</a>

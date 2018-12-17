@@ -46,7 +46,7 @@ class ApiUtil {
 
       /* Collection */
       getCollectionList: {
-        path: 'operation/'
+        path: 'userfav/'
       },
       submitCollection: {
         path: 'operation/'

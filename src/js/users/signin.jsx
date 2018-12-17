@@ -1,5 +1,9 @@
-import {Layout, Button, Input} from 'antd';
+import {Layout} from 'antd';
 import React, {Component} from 'react';
+import Form from 'react-validation/build/form';
+import Input from 'react-validation/build/input';
+import Button from 'react-validation/build/button';
+import {required, email, minLength} from '../utils/validation.jsx';
 import Header from '../layout/header.jsx';
 import Footer from '../layout/footer.jsx';
 
@@ -26,23 +30,44 @@ class Signin extends Component {
             </div>
 
             <div className="user__form">
-              <form className="sign-in__form-container" action="">
+              <Form className="sign-in__form-container" action="">
                 <div className="user__form-group">
-                  <Input size="large" placeholder="邮箱" />
+                  <label>
+                    邮箱
+                    <Input
+                      name="email"
+                      placeholder="邮箱"
+                      className="ant-input ant-input-lg"
+                      validations={[required, email]}
+                    />
+                  </label>
                 </div>
                 <div className="user__form-group">
-                  <Input size="large" placeholder="密码" />
+                  <label>
+                    密码
+                    <Input
+                      type="password"
+                      name="password"
+                      minLength={6}
+                      className="ant-input ant-input-lg"
+                      validations={[required, minLength]}
+                    />
+                  </label>
                 </div>
                 <div className="sign-in__buttons user__form-group text-center">
-                  <Button className="text-bottom" size="large" type="primary">登录</Button>
+                  <Button
+                    className="ant-btn ant-btn-primary ant-btn-lg text-bottom"
+                  >
+                    <span>登陆</span>
+                  </Button>
                   <a className="sign-in__buttons-link text-bottom" href="">忘记密码</a>
                 </div>
-              </form>
+              </Form>
 
               <div className="user__form-group register text-center">
                 <label className="sign-in__label">还没有注册？</label>
                 <div>
-                  <Button size="large" type="primary">立即注册</Button>
+                  <button size="large" type="primary">立即注册</button>
                 </div>
               </div>
             </div>

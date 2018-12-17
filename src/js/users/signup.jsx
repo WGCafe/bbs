@@ -7,7 +7,7 @@ import {connect} from 'react-redux';
 import Header from '../layout/header.jsx';
 import Footer from '../layout/footer.jsx';
 import {required, email, minLength} from '../utils/validation.jsx';
-import {userSignUp} from '../pages/actions/user-actions';
+import {getUserSignUp} from '../pages/actions/user-actions';
 
 import '../../styles/common.less';
 
@@ -70,9 +70,9 @@ class Signup extends Component {
                 >
                   <Button
                     className="ant-btn ant-btn-primary ant-btn-lg"
-                    onClick={this.propr.userSignUp()}
+                    onClick={this.props.userSignUp.bind(this)}
                   >
-                    <span>Submit</span>
+                    <span>注册</span>
                   </Button>
                 </div>
               </Form>
@@ -87,14 +87,7 @@ class Signup extends Component {
 
 Signup.propTypes = {};
 
-export default connect(({
-  // articleType,
-  // article
-}) => {
-  return {
-    // tabs: articleType.articleTypeList,
-    // postList: article.articleList
-  };
-}, {
-  userSignUp
-})(Signup);
+export default connect(
+  null, {
+    userSignUp: getUserSignUp
+  })(Signup);

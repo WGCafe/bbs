@@ -22,9 +22,9 @@ function* watchUserSignUp() {
     const req = yield take(userSignUpAction);
 
     try {
-      const context = yield call(userSignUp, req);
+      const context = yield call(userSignUp, req.data);
 
-      yield put(userSignUpSuccess(context.results));
+      yield put(userSignUpSuccess(context));
     } catch (e) {
       yield put(handleApiErrorAction(e));
     }

@@ -66,9 +66,7 @@ class Signin extends Component {
 
               <div className="user__form-group register text-center">
                 <label className="sign-in__label">还没有注册？</label>
-                <div>
-                  <button size="large" type="primary">立即注册</button>
-                </div>
+                <button className="ant-btn ant-btn-primary ant-btn-lg">立即注册</button>
               </div>
             </div>
           </div>

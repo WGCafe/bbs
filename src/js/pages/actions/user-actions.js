@@ -5,9 +5,10 @@ const {
   USER_SIGN_UP
 } = Constants.ACTIONS_NAME;
 
-export function getUserSignUp() {
+export function getUserSignUp(data) {
   return {
-    type: GET_USER_SIGN_UP
+    type: GET_USER_SIGN_UP,
+    data
   };
 }
 

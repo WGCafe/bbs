@@ -20,6 +20,16 @@ class Signup extends Component {
 
   componentWillReceiveProps() {}
 
+  signUp() {
+    const signUpInfo = this.signUpForm.getValues();
+
+    const data = this.props.userSignUp(signUpInfo);
+
+    if (data.token) {
+      window.location = '/';
+    }
+  }
+
   render() {
     return (
       <Layout className="layout">
@@ -29,7 +39,13 @@ class Signup extends Component {
             <h2 className="user__title text-center">注册</h2>
 
             <div className="user__form">
-              <Form action="">
+              <Form
+                name="signUp_form"
+                action=""
+                ref={dom => {
+                  this.signUpForm = dom;
+                }}
+              >
                 <div className="user__form-group">
                   <label>
                     用户名
@@ -70,7 +86,7 @@ class Signup extends Component {
                 >
                   <Button
                     className="ant-btn ant-btn-primary ant-btn-lg"
-                    onClick={this.props.userSignUp.bind(this)}
+                    onClick={this.signUp.bind(this)}
                   >
                     <span>注册</span>
                   </Button>

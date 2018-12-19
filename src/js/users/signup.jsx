@@ -16,18 +16,22 @@ const {
 } = Layout;
 
 class Signup extends Component {
-  componentWillMount() {}
+  componentWillMount() {
+    if (this.props.user.token) {
+      window.location = '/';
+    }
+  }
 
-  componentWillReceiveProps() {}
+  componentWillReceiveProps() {
+    if (this.props.user.token) {
+      window.location = '/';
+    }
+  }
 
   signUp() {
     const signUpInfo = this.signUpForm.getValues();
 
-    const data = this.props.userSignUp(signUpInfo);
-
-    if (data.token) {
-      window.location = '/';
-    }
+    this.props.userSignUp(signUpInfo);
   }
 
   render() {
@@ -103,7 +107,12 @@ class Signup extends Component {
 
 Signup.propTypes = {};
 
-export default connect(
-  null, {
-    userSignUp: getUserSignUp
-  })(Signup);
+export default connect(({
+  user
+}) => {
+  return {
+    user: user.userSignUp
+  };
+}, {
+  userSignUp: getUserSignUp
+})(Signup);

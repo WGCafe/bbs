@@ -72,7 +72,7 @@ class Article extends Component {
             <List.Item className="post__item">
               <div className="ant-list-item-meta post__item-meta">
                 <div className="ant-list-item-meta-avatar">
-                  <Avatar size="small" src="" />
+                  <Avatar size={30} src="" />
                 </div>
                 <div className="ant-list-item-meta-content">
                   <div className="ant-list-item-meta-description">

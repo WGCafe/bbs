@@ -1,8 +1,6 @@
-import {Layout, List, Row, Col, Upload, Button, message, Icon, Input} from 'antd';
+import {List, Row, Col, Upload, Button, message, Icon, Input, Avatar} from 'antd';
 import React, {Component} from 'react';
-
-import Header from '../layout/header.jsx';
-import Content from '../layout/content.jsx';
+import LayoutContainer from '../layout/container.jsx';
 
 class Article extends Component {
   componentWillMount() { }
@@ -11,21 +9,38 @@ class Article extends Component {
 
   renderTopic() {
     return (
-      <div className="article-topic__wrapper">
-        <div className="article-topic">
-          <img className="article-topic__img"/>
-          <span className="article-topic__readed">123</span>
-          <div className="article-topic__title">
-            <p>上海哪家医院好</p>
-            <span>3回复|4小时前 来自 xx</span>
-            <i className="dot-icon">
-              <span></span>
-            </i>
+      <div>
+        <div className="ant-list-item post__item post__avatar-list">
+          <div className="ant-list-item-content ant-list-item-content-single">
+            <div className="ant-list-item-meta post__item-meta">
+              <div className="ant-list-item-meta-avatar">
+                <Avatar size={52} src="" />
+              </div>
+              <div className="ant-list-item-meta-content">
+                <h4 className="ant-list-item-meta-title"><a className="post__item-title" href="">test</a></h4>
+                <div className="ant-list-item-meta-description">
+                  <div className="post__item-info">
+                    <span className="text-middle">3 回复</span>
+                    <i className="text-middle">•</i>
+                    <span className="text-middle">4 小时前</span>
+                    <span className="text-middle">来自 testman</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="ant-list-item-extra">
+              <Icon type="ellipsis" />
+            </div>
           </div>
         </div>
-        <div className="article-topic__comment">
-          <p className="article-topic__comment-p">hahahahaha</p>
-          <span className="article-topic__comment-tip">感谢123 收藏123 转发123</span>
+        <div>
+          <p>内容</p>
+          <div>
+            <ul>
+              <li>感谢 123</li>
+              <li>收藏 97</li>
+            </ul>
+          </div>
         </div>
       </div>
     );
@@ -51,18 +66,29 @@ class Article extends Component {
       <List
         itemLayout="horizontal"
         dataSource={data}
-        renderItem={item => (
-          <List.Item className="article-comment__item">
-            <img className="article-comment__img"/>
-            <ul className="article-comment__ul">
-              <li>{item.name}</li>
-              <li>{item.time}</li>
-              <li>{item.like}</li>
-            </ul>
-            <p className="article-comment__p">{item.comment}</p>
-          </List.Item>
-        )}
-      />
+        renderItem={item => {
+
+          return (
+            <List.Item className="post__item">
+              <div className="ant-list-item-meta post__item-meta">
+                <div className="ant-list-item-meta-avatar">
+                  <Avatar size="small" src="" />
+                </div>
+                <div className="ant-list-item-meta-content">
+                  <div className="ant-list-item-meta-description">
+                    <div className="post__item-info">
+                      <h5 className="text-middle">{item.name}</h5>
+                      <span className="text-middle">4 小时前</span>
+                      <div>
+                        <span className="text-middle">3</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </List.Item>
+          );
+        }}/>
     );
   }
 
@@ -91,50 +117,27 @@ class Article extends Component {
             添加圖片
           </Upload>
         </div>
-        <Button className="article-upload__button">回復</Button>
+        <Button className="article-upload__button"></Button>
       </div>
     );
   }
 
   render() {
-    const data2 = [
-      'Racing car sprays burning fuel into crowd.',
-      'Japanese princess to wed commoner.',
-      'Australian walks 100km after outback crash.',
-      'Man charged over missing wedding girl.',
-      'Los Angeles battles huge wildfires.'
-    ];
-
     return (
-      <Layout className="layout">
-        <Header className="header">
-        </Header>
-        <Content>
-          <div className="article__container container">
-            <Row type="flex" justify="space-between" align="top" gutter={24}>
-              <Col span={17}>
-                {this.renderTopic()}
-                {this.renderComment()}
-                {this.renderUpload()}
-              </Col>
-              <Col span={7}>
-                <List
-                  className="side-list"
-                  split={false}
-                  header={<div><h2 className="side-list__title">Community Guidelines</h2></div>}
-                  dataSource={data2}
-                  renderItem={item => (
-                    <List.Item>
-                      <h4 className="side-list__item-title">Aenean euismod</h4>
-                      <p className="side-list__item-detail">{item}</p>
-                    </List.Item>
-                  )}
-                />
-              </Col>
-            </Row>
-          </div>
-        </Content>
-      </Layout>
+      <LayoutContainer>
+        <div className="article__container container">
+          <Row type="flex" justify="space-between" align="top" gutter={24}>
+            <Col span={17}>
+              {this.renderTopic()}
+              {this.renderComment()}
+              {this.renderUpload()}
+            </Col>
+            <Col span={7}>
+              {/* <SideList/> */}
+            </Col>
+          </Row>
+        </div>
+      </LayoutContainer>
     );
   }
 }

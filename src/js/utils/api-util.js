@@ -56,10 +56,18 @@ class ApiUtil {
 
       /* Collection */
       getCollectionList: {
-        path: 'operation/'
+        path: 'userfav/'
       },
       submitCollection: {
         path: 'operation/'
+      },
+
+      /* Message */
+      getMessageList: {
+        path: 'usermessage/'
+      },
+      messageOpt: {
+        path: 'usermessage/:id'
       }
     };
   }

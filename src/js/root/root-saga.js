@@ -5,6 +5,7 @@ import articleTypeSaga from '../pages/sagas/article-type-sagas';
 import articleSaga from '../pages/sagas/article-sagas';
 import userSaga from '../pages/sagas/user-sagas';
 import operationSaga from '../pages/sagas/operation-sagas';
+import messageSaga from '../pages/sagas/message-sagas';
 
 export default function* root() {
   yield all([
@@ -12,6 +13,7 @@ export default function* root() {
     fork(articleTypeSaga),
     fork(articleSaga),
     fork(userSaga),
-    fork(operationSaga)
+    fork(operationSaga),
+    fork(messageSaga)
   ]);
 }

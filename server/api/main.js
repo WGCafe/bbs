@@ -13,5 +13,6 @@ router.use('/articles', require('./articles'));
 router.use('/articletype', require('./articletype'));
 router.use('/operation', require('./operation'));
 router.use('/user', require('./user'));
+router.use('/userfav', require('./userfav'));
 
 module.exports = router;

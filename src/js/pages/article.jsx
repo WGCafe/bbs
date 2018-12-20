@@ -2,6 +2,8 @@ import {List, Row, Col, Upload, Button, message, Icon, Input, Avatar} from 'antd
 import React, {Component} from 'react';
 import LayoutContainer from '../layout/container.jsx';
 
+const {TextArea} = Input;
+
 class Article extends Component {
   componentWillMount() { }
 
@@ -33,12 +35,12 @@ class Article extends Component {
             </div>
           </div>
         </div>
-        <div>
-          <p>内容</p>
-          <div>
-            <ul>
-              <li>感谢 123</li>
-              <li>收藏 97</li>
+        <div className="article__contnet">
+          <p className="article__contnet-text">要做根管治疗，还有一颗门牙要修复 求大家推荐靠谱的医院</p>
+          <div className="article__operation-info">
+            <ul className="article__info">
+              <li className="article__info-item">感谢 123</li>
+              <li className="article__info-item">收藏 97</li>
             </ul>
           </div>
         </div>
@@ -64,6 +66,7 @@ class Article extends Component {
 
     return (
       <List
+        className="article__list"
         itemLayout="horizontal"
         dataSource={data}
         renderItem={item => {
@@ -76,12 +79,17 @@ class Article extends Component {
                 </div>
                 <div className="ant-list-item-meta-content">
                   <div className="ant-list-item-meta-description">
-                    <div className="post__item-info">
-                      <h5 className="text-middle">{item.name}</h5>
-                      <span className="text-middle">4 小时前</span>
-                      <div>
+                    <div className="article__comment post__item-info">
+                      <h4 className="article__comment-title text-middle">{item.name}</h4>
+                      <span className="article__comment-time text-middle">4 小时前</span>
+                      <div className="article__comment-like">
+                        <Icon type="heart" theme="filled" />
                         <span className="text-middle">3</span>
                       </div>
+                    </div>
+
+                    <div className="article__comment-text">
+                      <p>静安牙防所</p>
                     </div>
                   </div>
                 </div>
@@ -109,15 +117,15 @@ class Article extends Component {
     };
 
     return (
-      <div className="article-upload">
-        <div className="article-upload__textarea">
-          <Input className="article-upload__input" />
-          <Upload {...props}>
-            <Icon type="upload" />
-            添加圖片
+      <div className="article__upload">
+        <div className="article__upload-textarea">
+          <TextArea rows={4}  placeholder="输入状态" />
+          <Upload className="article__upload-image" {...props}>
+            <Icon type="picture" theme="filled" />
+            <span className="text-middle">添加图片</span>
           </Upload>
         </div>
-        <Button className="article-upload__button"></Button>
+        <Button className="article__upload-button">回复</Button>
       </div>
     );
   }

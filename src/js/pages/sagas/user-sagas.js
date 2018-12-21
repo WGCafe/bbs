@@ -6,13 +6,24 @@ import {userSignUp} from '../services/user-service';
 import Constants from '../../utils/constants';
 
 const {
+  IS_USER_AUTHENTICED,
   GET_USER_SIGN_UP
 } = Constants.ACTIONS_NAME;
 
 export default function* root() {
   yield all([
-    fork(watchUserSignUp)
+    fork(watchUserSignUp),
+    fork(checkUserAuthentication)
   ]);
+}
+
+function* checkUserAuthentication() {
+  const checkIsLogin = yield actionChannel(IS_USER_AUTHENTICED);
+
+  while (true) {
+    const req = yield take(checkIsLogin);
+    const isUserAuthenticated = req.data;
+    yield put(checkUserSignUpSuccess(isUserAuthenticated));
 }
 
 function* watchUserSignUp() {

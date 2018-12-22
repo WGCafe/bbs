@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import {Layout} from 'antd';
+import {connect} from 'react-redux';
 import Header from '../layout/header.jsx';
 import {withCookies} from 'react-cookie';
-import {isUserAuthenticated} from 'user-action';
+import {checkUserAuthentication} from '../pages/actions/user-actions';
 
 import '../../styles/common.less';
 
@@ -10,23 +11,18 @@ const {Content} = Layout;
 
 
 class LayoutContainer extends Component {
+  componentWillReceiveProps() {}
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.user.token === this.props.user.token) {
-      // Set user login state here, if not equal, set if user is login
-    }
-  }
-
-  componentWillMount() {
+  componentDidMount() {
     const {cookies} = this.props;
+    const userToken = cookies.get('token');
 
-    /*eslint-disable no-console*/
-    console.log(cookies.getAll());
-    console.log("Hello, can you see me");
-
-    cookies.get('name');
-    this.props.isUserAuthenticated(cookies.getAll());
+    this.props.checkUserAuthentication({
+      userToken
+    });
   }
+
+  componentWillMount() {}
 
   render() {
     const {children} = this.props;
@@ -45,13 +41,12 @@ class LayoutContainer extends Component {
 LayoutContainer.propTypes = {
 };
 
-export default withCookies(({
+export default withCookies(connect(({
   user
 }) => {
   return {
-    // user: user.userSignUp
-    isLogin: user.isUserAuthenticated
+    isLogin: user.isUserAuthenticated.isLogin
   };
 }, {
-  isUserLogin: isUserAuthenticated
-})(LayoutContainer);
+  checkUserAuthentication
+})(LayoutContainer));

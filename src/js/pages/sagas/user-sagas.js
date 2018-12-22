@@ -1,12 +1,11 @@
 import {fork, all, take, call, put, actionChannel} from 'redux-saga/effects';
 import {handleApiErrorAction} from '../../utils/api-util';
-
-import {userSignUpSuccess} from '../actions/user-actions';
+import {userSignUpSuccess, isUserAuthenticated} from '../actions/user-actions';
 import {userSignUp} from '../services/user-service';
 import Constants from '../../utils/constants';
 
 const {
-  IS_USER_AUTHENTICED,
+  CHECK_USER_AUTHENTICATION,
   GET_USER_SIGN_UP
 } = Constants.ACTIONS_NAME;
 
@@ -18,12 +17,14 @@ export default function* root() {
 }
 
 function* checkUserAuthentication() {
-  const checkIsLogin = yield actionChannel(IS_USER_AUTHENTICED);
+  const checkIsLogin = yield actionChannel(CHECK_USER_AUTHENTICATION);
 
   while (true) {
     const req = yield take(checkIsLogin);
-    const isUserAuthenticated = req.data;
-    yield put(checkUserSignUpSuccess(isUserAuthenticated));
+    const isLogin = req.data.userToken ? true : false;
+
+    yield put(isUserAuthenticated({isLogin}));
+  }
 }
 
 function* watchUserSignUp() {
@@ -36,6 +37,7 @@ function* watchUserSignUp() {
       const context = yield call(userSignUp, req.data);
 
       yield put(userSignUpSuccess(context));
+      yield put(isUserAuthenticated({isLogin: true}));
     } catch (e) {
       yield put(handleApiErrorAction(e));
     }

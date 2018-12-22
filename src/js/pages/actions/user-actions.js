@@ -1,7 +1,7 @@
 import Constants from '../../utils/constants';
 
 const {
-  CHEKC_USER_AUTHENTICATION,
+  CHECK_USER_AUTHENTICATION,
   IS_USER_AUTHENTICED,
   GET_USER_SIGN_UP,
   USER_SIGN_UP
@@ -9,7 +9,7 @@ const {
 
 export function checkUserAuthentication(data) {
   return {
-    type: CHEKC_USER_AUTHENTICATION,
+    type: CHECK_USER_AUTHENTICATION,
     data
   };
 }

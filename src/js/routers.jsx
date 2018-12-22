@@ -6,6 +6,7 @@ import {
   Redirect
 } from 'react-router-dom';
 import {Provider} from 'react-redux';
+import {CookiesProvider} from 'react-cookie';
 import Loadable from 'react-loadable';
 import configStore from './root/config-store';
 // import Feedback from './common/components/feedback.jsx';
@@ -57,23 +58,25 @@ export default class Routers extends React.Component {
 
   render() {
     return (
-      <Provider store={store}>
-        <Router>
-          <Switch>
-            <Route path="/home" component={HomeContainer} />
-            <Route path="/message" component={Message} />
-            <Route path="/search" component={Search} />
-            <Route path="/signup" component={Signup} />
-            <Route path="/login" component={Signin} />
-            <Route path="/reset-password" component={ResetPassword} />
-            <Route path="/article" component={Article} />
-            <Route path="/404" component={PageNoFound} />
-            <Redirect exact path="/" to="/home" />
-            <Redirect from="*" to="/404" />
-          </Switch>
-          {/* <Feedback onActions={OnApiErrorAction} /> */}
-        </Router>
-      </Provider>
+      <CookiesProvider>
+        <Provider store={store}>
+          <Router>
+            <Switch>
+              <Route path="/home" component={HomeContainer} />
+              <Route path="/message" component={Message} />
+              <Route path="/search" component={Search} />
+              <Route path="/signup" component={Signup} />
+              <Route path="/login" component={Signin} />
+              <Route path="/reset-password" component={ResetPassword} />
+              <Route path="/article" component={Article} />
+              <Route path="/404" component={PageNoFound} />
+              <Redirect exact path="/" to="/home" />
+              <Redirect from="*" to="/404" />
+            </Switch>
+            {/* <Feedback onActions={OnApiErrorAction} /> */}
+          </Router>
+        </Provider>
+      </CookiesProvider>
     );
   }
 }

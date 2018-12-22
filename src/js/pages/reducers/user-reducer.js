@@ -6,6 +6,15 @@ const {
   USER_SIGN_UP
 } = Constants.ACTIONS_NAME;
 
+function isUserAuthenticated(state = [], action) {
+  switch (action.type) {
+    case IS_USER_AUTHENTICED:
+      return action.data;
+    default:
+      return state;
+  }
+}
+
 function userSignUp(state = [], action) {
   switch (action.type) {
     case USER_SIGN_UP:
@@ -13,14 +22,6 @@ function userSignUp(state = [], action) {
     default:
       return state;
   }
-}
-
-function isUserAuthenticated(state = [], action) {
-  switch (action.type) {
-    case IS_USER_AUTHENTICED:
-      return action.data;
-    default:
-      return state;
 }
 
 const common = combineReducers({

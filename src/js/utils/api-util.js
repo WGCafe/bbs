@@ -53,6 +53,9 @@ class ApiUtil {
       getArticleList: {
         path: 'articles/'
       },
+      getArticle: {
+        path: '/articles/:id'
+      },
 
       /* Collection */
       getCollectionList: {

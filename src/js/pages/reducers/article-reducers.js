@@ -2,7 +2,8 @@ import {combineReducers} from 'redux';
 import Constants from '../../utils/constants';
 
 const {
-  ARTICLE_LIST
+  ARTICLE_LIST,
+  ARTICLE
 } = Constants.ACTIONS_NAME;
 
 function articleList(state = [], action) {
@@ -14,8 +15,18 @@ function articleList(state = [], action) {
   }
 }
 
+function article(state = [], action) {
+  switch (action.type) {
+    case ARTICLE:
+      return action.data;
+    default:
+      return state;
+  }
+}
+
 const common = combineReducers({
-  articleList
+  articleList,
+  article
 });
 
 export default function root(state, action) {

@@ -119,6 +119,7 @@ class Article extends Component {
     return (
       <div className="article__upload">
         <div className="article__upload-textarea">
+          <img className="article-topic__img"/>
           <TextArea rows={4}  placeholder="输入状态" />
           <Upload className="article__upload-image" {...props}>
             <Icon type="picture" theme="filled" />

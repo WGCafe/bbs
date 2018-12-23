@@ -20,6 +20,8 @@ class Constants {
       /* Article */
       GET_ARTICLE_LIST: 'GET_ARTICLE_LIST',
       ARTICLE_LIST: 'ARTICLE_LIST',
+      GET_ARTICLE: 'GET_ARTICLE',
+      ARTICLE: 'ARTICLE',
 
       /* COLLECTION */
       GET_COLLECTION_LIST: 'GET_COLLECTION_LIST',

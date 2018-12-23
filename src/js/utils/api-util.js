@@ -34,6 +34,16 @@ export function handleApiErrorAction(error) {
 class ApiUtil {
   static get API_INFO() {
     return {
+      /* User Sign Up */
+      userSignUp: {
+        path: 'user/'
+      },
+
+      /* User Log In */
+      userLogIn: {
+        path: 'login/'
+      },
+
       /* ArticleType */
       getArticleTypeList: {
         path: 'articletype/'

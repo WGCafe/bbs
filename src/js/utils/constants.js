@@ -1,6 +1,18 @@
 class Constants {
   static get ACTIONS_NAME() {
     return {
+      /* Check User Login */
+      CHECK_USER_AUTHENTICATION: 'CHECK_USER_AUTHENTICATION',
+      IS_USER_AUTHENTICED: 'IS_USER_AUTHENTICED',
+
+      /* User Sign Up */
+      GET_USER_SIGN_UP: 'GET_USER_SIGN_UP',
+      USER_SIGN_UP: 'USER_SIGN_UP',
+
+      /* User Sign In */
+      GET_USER_SIGN_IN: 'GET_USER_SIGN_IN',
+      USER_SIGN_IN: 'USER_SIGN_IN',
+
       /* Article Type */
       GET_ARTICLE_TYPE_LIST: 'GET_ARTICLE_TYPE_LIST',
       ARTICLE_TYPE_LIST: 'ARTICLE_TYPE_LIST',

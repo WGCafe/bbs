@@ -1,4 +1,3 @@
-/* eslint-disable */
 import LayoutContainer from '../layout/container.jsx';
 import Form from 'react-validation/build/form';
 import Input from 'react-validation/build/input';
@@ -22,6 +21,7 @@ class Signup extends Component {
     if (nextProps.user.token
       && nextProps.user.token !== this.props.user.token) {
       const {cookies} = this.props;
+
       cookies.set('token', nextProps.user.token);
 
       return true;

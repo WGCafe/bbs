@@ -3,6 +3,8 @@ import Constants from '../../utils/constants';
 const {
   CHECK_USER_AUTHENTICATION,
   IS_USER_AUTHENTICED,
+  GET_USER_SIGN_IN,
+  USER_SIGN_IN,
   GET_USER_SIGN_UP,
   USER_SIGN_UP
 } = Constants.ACTIONS_NAME;
@@ -31,6 +33,20 @@ export function getUserSignUp(data) {
 export function userSignUpSuccess(data) {
   return {
     type: USER_SIGN_UP,
+    data
+  };
+}
+
+export function getUserSignIn(data) {
+  return {
+    type: GET_USER_SIGN_IN,
+    data
+  };
+}
+
+export function userSignInSuccess(data) {
+  return {
+    type: USER_SIGN_IN,
     data
   };
 }

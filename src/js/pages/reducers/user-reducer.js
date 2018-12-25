@@ -3,7 +3,8 @@ import Constants from '../../utils/constants';
 
 const {
   IS_USER_AUTHENTICED,
-  USER_SIGN_UP
+  USER_SIGN_UP,
+  USER_SIGN_IN
 } = Constants.ACTIONS_NAME;
 
 function isUserAuthenticated(state = [], action) {
@@ -24,9 +25,19 @@ function userSignUp(state = [], action) {
   }
 }
 
+function userSignIn(state = [], action) {
+  switch (action.type) {
+    case USER_SIGN_IN:
+      return action.data;
+    default:
+      return state;
+  }
+}
+
 const common = combineReducers({
   isUserAuthenticated,
-  userSignUp
+  userSignUp,
+  userSignIn
 });
 
 export default function root(state, action) {

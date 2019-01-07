@@ -3,7 +3,7 @@ import {responseClient} from '../util';
 
 const router = Express.Router();
 
-router.post('/', function (req, res){
+router.post('/', function (req, res) {
   if (req) {
     responseClient(res, 200, 1000, {});
   } else {

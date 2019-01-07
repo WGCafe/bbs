@@ -1,3 +1,6 @@
+import {connect} from 'react-redux';
+import {getArticle} from './actions/article-actions';
+
 import {List, Row, Col, Upload, Button, message, Icon, Input, Avatar} from 'antd';
 import React, {Component} from 'react';
 import LayoutContainer from '../layout/container.jsx';
@@ -5,7 +8,18 @@ import LayoutContainer from '../layout/container.jsx';
 const {TextArea} = Input;
 
 class Article extends Component {
-  componentWillMount() { }
+  componentWillMount() {
+    const {match} = this.props;
+
+    /* eslint-disable */
+    console.log(match.params);
+
+    if (!match.params.id) {
+      return;
+    }
+
+    this.props.getArticle({id: match.params.id});
+  }
 
   componentWillReceiveProps() { }
 
@@ -153,4 +167,10 @@ class Article extends Component {
 
 Article.propTypes = {};
 
-export default Article;
+export default connect(({articles}) => {
+  return {
+    article: articles.article
+  };
+}, {
+  getArticle
+})(Article);

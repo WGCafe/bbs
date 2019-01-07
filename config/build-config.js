@@ -10,7 +10,7 @@ module.exports = {
   apiPort: process.env.APIPORT || '3030',
 
   // 在API Server 反向代理配置
-  isRemoteProxy: true,
+  isRemoteProxy: false,
   // webpack proxy context， 包括API，以及不同project的重定向
   proxyPathPrefix: ['/'],
   remoteProxy: ' http://47.101.138.115',

@@ -30,7 +30,6 @@ class PostList extends Component {
         itemLayout="horizontal"
         dataSource={postList}
         renderItem={item => {
-          const {author} = item;
 
           return (
             <List.Item className="post__item">
@@ -38,7 +37,7 @@ class PostList extends Component {
                 {
                   isAll ? (
                     <div className="ant-list-item-meta-avatar">
-                      <Avatar size={52} src={author.face_image} />
+                      <Avatar size={52} src={item.face_image} />
                     </div>
                   ) : null
                 }
@@ -49,7 +48,7 @@ class PostList extends Component {
                       <span className="text-middle">{item.comments_num} 回复</span>
                       <i className="text-middle">•</i>
                       <span className="text-middle">{item.update_time} 小时前</span>
-                      <span className="text-middle">来自 {author.nick_name}</span>
+                      <span className="text-middle">来自 {item.author_name}</span>
                     </div>
                   </div>
                 </div>

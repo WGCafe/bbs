@@ -6,7 +6,7 @@ const {
   ARTICLE
 } = Constants.ACTIONS_NAME;
 
-function articleList(state = [], action) {
+function articleList(state = {}, action) {
   switch (action.type) {
     case ARTICLE_LIST:
       return action.data;
@@ -15,7 +15,7 @@ function articleList(state = [], action) {
   }
 }
 
-function article(state = [], action) {
+function article(state = {}, action) {
   switch (action.type) {
     case ARTICLE:
       return action.data;

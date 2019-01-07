@@ -26,7 +26,7 @@ function* watchGetArticleList() {
     try {
       const context = yield call(getArticleList, req);
 
-      yield put(getArticleListSuccess(context.results));
+      yield put(getArticleListSuccess(context));
     } catch (e) {
       yield put(handleApiErrorAction(e));
     }
@@ -42,7 +42,7 @@ function* watchGetArticle() {
     try {
       const context = yield call(getArticle, req);
 
-      yield put(getArticleSuccess(context.results));
+      yield put(getArticleSuccess(context));
     } catch (e) {
       yield put(handleApiErrorAction(e));
     }

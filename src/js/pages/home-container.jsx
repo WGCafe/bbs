@@ -171,12 +171,12 @@ HomeContainer.defaultProps = {
 
 export default connect(({
   articleType,
-  article,
+  articles,
   operation
 }) => {
   return {
     tabs: articleType.articleTypeList,
-    postList: article.articleList,
+    postList: articles.articleList.articles,
     collections: operation.collectionList
   };
 }, {

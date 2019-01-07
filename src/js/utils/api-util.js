@@ -36,10 +36,8 @@ class ApiUtil {
     return {
       /* User Sign Up */
       userSignUp: {
-        path: 'user/'
+        path: 'users/'
       },
-
-      /* User Log In */
       userLogIn: {
         path: 'login/'
       },
@@ -54,7 +52,7 @@ class ApiUtil {
         path: 'articles/'
       },
       getArticle: {
-        path: '/articles/:id'
+        path: 'article/:article_id'
       },
 
       /* Collection */
@@ -70,7 +68,7 @@ class ApiUtil {
         path: 'usermessage/'
       },
       messageOpt: {
-        path: 'usermessage/:id'
+        path: 'usermessage/:message_id'
       }
     };
   }

@@ -55,6 +55,11 @@ class ApiUtil {
         path: 'article/:article_id'
       },
 
+      /* Comment */
+      getCommentList: {
+        path: 'comments/'
+      },
+
       /* Collection */
       getCollectionList: {
         path: 'userfav/'

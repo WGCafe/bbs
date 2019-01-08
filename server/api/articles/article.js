@@ -32,7 +32,9 @@ router.get('/:article_id', function (req, res) {
       "content": "test",
       "image": "https://test.com/path/x.jpg",
       "thanks_num": 1,
-      "collection_num": 1
+      "collection_num": 1,
+      "create_time": 1234567890111,
+      "comment_num": 3
     });
   } else {
     responseClient(res, 200, 2000, {error: "system error"});

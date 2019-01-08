@@ -14,13 +14,14 @@ const {OPERATION_TYPES} = Constants;
 const {TabPane} = Tabs;
 const PAGE_SIZE = 20;
 const COLLECTION_TYPE_NAME = '收藏';
+const DEFAULT_TAB = '0';
 
 class HomeContainer extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      activeKey: "0",
+      activeKey: DEFAULT_TAB,
       page: 1
     };
 
@@ -40,17 +41,16 @@ class HomeContainer extends Component {
     }
   }
 
-  getArticleListData() {
+  getArticleListData(activeKey) {
     const {
-      page,
-      activeKey
+      page
     } = this.state;
     const options = {
       page,
       page_size: PAGE_SIZE
     };
 
-    if (activeKey !== 0) {
+    if (activeKey && activeKey !== DEFAULT_TAB) {
       Object.assign(options, {
         category: activeKey
       });
@@ -77,12 +77,15 @@ class HomeContainer extends Component {
     const {tabs} = this.props;
 
     if (Number(activeKey) !== Number(tabs.length + 1)) {
-      this.getArticleListData();
+      this.getArticleListData(activeKey);
     } else {
       this.getCollectionListData();
     }
 
     this.setState({activeKey});
+  }
+
+  handleToggleLike() {
   }
 
   renderTabPane(tabOptions) {
@@ -104,7 +107,11 @@ class HomeContainer extends Component {
             <Col span={17}>
               {
                 activeKey === tabOptions.currentKey ? (
-                  <PostList postList={Number(activeKey) !== Number(tabs.length + 1) ? postList : collections} isAll={true}/>
+                  <PostList
+                    postList={Number(activeKey) !== Number(tabs.length + 1) ? postList : collections}
+                    isAll={true}
+                    toggleLike={this.handleToggleLike.bind(this)}
+                  />
                 ) : null
               }
             </Col>
@@ -131,7 +138,7 @@ class HomeContainer extends Component {
         >
           {this.renderTabPane({
             name: "全部",
-            currentKey: "0"
+            currentKey: DEFAULT_TAB
           })}
           {
             tabs.map((tab) => {
@@ -177,7 +184,7 @@ export default connect(({
   return {
     tabs: articleType.articleTypeList,
     postList: articles.articleList.articles,
-    collections: operation.collectionList
+    collections: operation.collectionList.articles
   };
 }, {
   getArticleTypeList,

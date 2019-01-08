@@ -20,13 +20,13 @@ router.get('/', function (req, res) {
         }],
         "users": [{
           "id": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ7",
-          "face_image": "https://test.com/path/x.jpg",
+          "face_image": "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
           "username": "Jessica",
           "posted_article_num": 10,
           "posted_comment_num": 120
         }, {
           "id": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ6",
-          "face_image": "https://test.com/path/x.jpg",
+          "face_image": "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
           "username": "Jessica",
           "posted_article_num": 0,
           "posted_comment_num": 10

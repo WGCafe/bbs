@@ -11,19 +11,20 @@ class Article extends Component {
   componentWillMount() {
     const {match} = this.props;
 
-    /* eslint-disable */
-    console.log(match.params);
-
-    if (!match.params.id) {
+    if (!match.params || !match.params.article_id) {
       return;
     }
 
-    this.props.getArticle({id: match.params.id});
+    const {article_id = ''} = match.params;
+
+    this.props.getArticle({article_id});
   }
 
   componentWillReceiveProps() { }
 
   renderTopic() {
+    const {article} = this.props;
+
     return (
       <div>
         <div className="ant-list-item post__item post__avatar-list">
@@ -33,13 +34,13 @@ class Article extends Component {
                 <Avatar size={52} src="" />
               </div>
               <div className="ant-list-item-meta-content">
-                <h4 className="ant-list-item-meta-title"><a className="post__item-title" href="">test</a></h4>
+                <h4 className="ant-list-item-meta-title"><a className="post__item-title" href="">{article.title || ''}</a></h4>
                 <div className="ant-list-item-meta-description">
                   <div className="post__item-info">
-                    <span className="text-middle">3 回复</span>
+                    <span className="text-middle">{article.comment_num} 回复</span>
                     <i className="text-middle">•</i>
-                    <span className="text-middle">4 小时前</span>
-                    <span className="text-middle">来自 testman</span>
+                    <span className="text-middle">{article.create_time} 小时前</span>
+                    <span className="text-middle">来自 {article.author_name}</span>
                   </div>
                 </div>
               </div>
@@ -50,11 +51,11 @@ class Article extends Component {
           </div>
         </div>
         <div className="article__contnet">
-          <p className="article__contnet-text">要做根管治疗，还有一颗门牙要修复 求大家推荐靠谱的医院</p>
+          <p className="article__contnet-text">{article.content}</p>
           <div className="article__operation-info">
             <ul className="article__info">
-              <li className="article__info-item">感谢 123</li>
-              <li className="article__info-item">收藏 97</li>
+              <li className="article__info-item">感谢 {article.thanks_num}</li>
+              <li className="article__info-item">收藏 {article.collection_num}</li>
             </ul>
           </div>
         </div>
@@ -62,27 +63,14 @@ class Article extends Component {
     );
   }
 
-  renderComment() {
-    const data = [
-      {
-        name: 'haha',
-        time: 123123123,
-        like: 3,
-        comment: 'hahahahahaha'
-      },
-      {
-        name: 'haha',
-        time: 123123123,
-        like: 3,
-        comment: 'hahahahahaha'
-      }
-    ];
+  renderComments() {
+    const {commentList = []} = this.props;
 
     return (
       <List
         className="article__list"
         itemLayout="horizontal"
-        dataSource={data}
+        dataSource={commentList}
         renderItem={item => {
 
           return (
@@ -94,16 +82,16 @@ class Article extends Component {
                 <div className="ant-list-item-meta-content">
                   <div className="ant-list-item-meta-description">
                     <div className="article__comment post__item-info">
-                      <h4 className="article__comment-title text-middle">{item.name}</h4>
-                      <span className="article__comment-time text-middle">4 小时前</span>
+                      <h4 className="article__comment-title text-middle">{item.author_name}</h4>
+                      <span className="article__comment-time text-middle">{item.create_time} 小时前</span>
                       <div className="article__comment-like">
                         <Icon type="heart" theme="filled" />
-                        <span className="text-middle">3</span>
+                        <span className="text-middle">{item.thanks_num}</span>
                       </div>
                     </div>
 
                     <div className="article__comment-text">
-                      <p>静安牙防所</p>
+                      <p>{item.content}</p>
                     </div>
                   </div>
                 </div>
@@ -152,7 +140,7 @@ class Article extends Component {
           <Row type="flex" justify="space-between" align="top" gutter={24}>
             <Col span={17}>
               {this.renderTopic()}
-              {this.renderComment()}
+              {this.renderComments()}
               {this.renderUpload()}
             </Col>
             <Col span={7}>
@@ -167,9 +155,13 @@ class Article extends Component {
 
 Article.propTypes = {};
 
-export default connect(({articles}) => {
+export default connect(({
+  articles,
+  comments
+}) => {
   return {
-    article: articles.article
+    article: articles.article,
+    commentList: comments.commentList
   };
 }, {
   getArticle

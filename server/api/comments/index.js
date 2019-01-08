@@ -13,6 +13,7 @@ router.get('/', function (req, res) {
         "content": "test",
         "create_time": 1234567890111,
         "collection_num": 20,
+        "thanks_num": 4,
         "is_collection": false,
         "is_thanks": true
       }, {
@@ -22,6 +23,7 @@ router.get('/', function (req, res) {
         "content": "test",
         "create_time": 1234567890112,
         "collection_num": 20,
+        "thanks_num": 10,
         "is_collection": false,
         "is_thanks": true
       }, {
@@ -31,6 +33,7 @@ router.get('/', function (req, res) {
         "content": "test",
         "create_time": 1234567890113,
         "collection_num": 20,
+        "thanks_num": 15,
         "is_collection": true,
         "is_thanks": true
       }]

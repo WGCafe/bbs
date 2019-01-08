@@ -14,14 +14,11 @@ class PostList extends Component {
     super(props);
   }
 
-  handleToggleLike() {
-    //TODO change collection status.
-  }
-
   render() {
     const {
       isAll,
-      postList
+      postList,
+      toggleLike
     } = this.props;
 
     return (
@@ -53,7 +50,7 @@ class PostList extends Component {
                   </div>
                 </div>
               </div>
-              <div className="ant-list-item-extra" onClick={this.handleToggleLike()}>
+              <div className="ant-list-item-extra" onClick={toggleLike}>
                 <Icon type="star" theme="filled" />
               </div>
             </List.Item>

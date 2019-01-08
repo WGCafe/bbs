@@ -23,6 +23,9 @@ class Constants {
       GET_ARTICLE: 'GET_ARTICLE',
       ARTICLE: 'ARTICLE',
 
+      /* Comment */
+      COMMENT_LIST: 'COMMENT_LIST',
+
       /* COLLECTION */
       GET_COLLECTION_LIST: 'GET_COLLECTION_LIST',
       COLLECTION_LIST: 'COLLECTION_LIST',

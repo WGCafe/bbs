@@ -19,10 +19,10 @@ function* watchGetArticleTypeList() {
   const getArticleTypeListAction = yield actionChannel(GET_ARTICLE_TYPE_LIST);
 
   while (true) {
-    const req = yield take(getArticleTypeListAction);
+    yield take(getArticleTypeListAction);
 
     try {
-      const context = yield call(getArticleTypeList, req);
+      const context = yield call(getArticleTypeList);
 
       yield put(getArticleTypeListSuccess(context));
     } catch (e) {

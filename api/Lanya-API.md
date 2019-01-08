@@ -365,13 +365,15 @@ Token         | {user_token}
             {
                 "status": "1000",
                 "context": {
-                		id: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9",
-                		author_name: "Jessica",
-                    title: "test",
-                    content: "test",
-                    image: "https://test.com/path/x.jpg",
-                    thanks_num: 1,
-                    collection_num: 1
+						id: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9",
+						author_name: "Jessica",
+						title: "test",
+						content: "test",
+						image: "https://test.com/path/x.jpg",
+						thanks_num: 1,
+						collection_num: 1,
+						create_time: 1234567890111,
+						comment_num: 3
                 }
             }
             
@@ -680,7 +682,7 @@ Token         | {user_token}
             }
 
 
-## Get comment List [GET /comments]
+## Get Comment List [GET /comments]
 
 Headers       | Value
 ------------- | ----------------
@@ -699,12 +701,13 @@ Token         | {user_token}
             {
                 "status": "1000",
                 "context": [{
-                    id: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9",
-                    source_comment: "test-0",
-                    author_name: "Jessica",
-                    content: "test",
+						id: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9",
+						source_comment: "test-0",
+						author_name: "Jessica",
+						content: "test",
 						create_time: 1234567890111,
 						collection_num: 20,
+						thanks_num: 4,
 						is_collection: false,
 						is_thanks: true
                 }, ...]
@@ -820,19 +823,19 @@ Token         | {user_token}
                 "status": "1000",
                 "context": {
                 		articles: [{
-	                    id: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9",
-                    	title: "test",
-                    	create_time: 1234567890111
+							id: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9",
+							title: "test",
+							create_time: 1234567890111
 	                }, ...],
 	                comments: [{
-	                    id: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9",
-	                    source_comment: "test-0",
-	                    content: "test",
+							id: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9",
+							source_comment: "test-0",
+							content: "test",
 							create_time: 1234567890111
 	                }, ...],
 	                users: [{
-	                    id: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9",
-	                    face_image: "https://test.com/path/x.jpg",
+							id: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9",
+							face_image: "https://test.com/path/x.jpg",
 							username: "Jessica",
 							posted_article_num: 20,
 							posted_comment_num: 120

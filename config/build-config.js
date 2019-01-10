@@ -13,7 +13,7 @@ module.exports = {
   isRemoteProxy: false,
   // webpack proxy context， 包括API，以及不同project的重定向
   proxyPathPrefix: ['/'],
-  remoteProxy: ' http://47.101.138.115',
+  remoteProxy: 'http://47.101.138.115',
   token: 'rx44w6x63qnz8i3jr2x9jm1c',
 
   outputDir: 'build',

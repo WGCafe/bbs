@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="52px" height="52px" viewBox="0 0 52 52" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 12</title>
+    <desc>Created with Sketch.</desc>
+    <g id="badges" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="badget" transform="translate(-413.000000, -445.000000)">
+            <g id="Group-12" transform="translate(413.000000, 445.000000)">
+                <circle id="Oval" fill="#61BD46" cx="26" cy="26" r="26"></circle>
+                <g id="Group-11" transform="translate(19.000000, 27.000000)">
+                    <path d="M1.87345401,0.75 L4.55047603,18.25 L10.9154957,18.25 L14.1011468,0.75 L1.87345401,0.75 Z" id="Rectangle" stroke="#000000" stroke-width="1.5" fill="#D8D8D8"></path>
+                    <path d="M2.74690802,1.5 L5.19447101,17.5 L10.2896983,17.5 L13.2022936,1.5 L2.74690802,1.5 Z M1,0 L15,0 L11.5412931,19 L3.90648104,19 L1,0 Z" id="Rectangle" fill="#000000" fill-rule="nonzero"></path>
+                    <polygon id="Path-5" fill="#000000" fill-rule="nonzero" points="0.647087101 8.23543551 0.352912899 6.76456449 15.3529129 3.76456449 15.6470871 5.23543551"></polygon>
+                    <polygon id="Path-5" fill="#000000" fill-rule="nonzero" points="1.13184298 11.7383207 0.868157021 10.2616793 14.868157 7.76167932 15.131843 9.23832068"></polygon>
+                    <polygon id="Path-5" fill="#000000" fill-rule="nonzero" points="2.1470871 15.7354355 1.8529129 14.2645645 14.3529129 11.7645645 14.6470871 13.2354355"></polygon>
+                </g>
+                <path d="M20.4146869,10 C23.4949335,10 23.794384,11.6413961 28.7760333,10.9428571 C33.7576826,10.2443182 37.4777621,10.3653137 39.6148475,14.1895881 C41.7519328,18.0138626 40.3724734,25.2878977 38.9362367,27.3939488 C37.5,29.5 37.6442713,29.7139322 36.5,30 C34.5,30.5 31.1302661,29.5 27,29.5 C22.5,29.5 17.9455394,32.1005495 16.9225851,31 C15.1962769,29.1427445 13.2445577,26.5605864 12.1222788,21.2802932 C11.3740929,17.7600977 12.2710081,14.77684 14.8130244,12.3305201 C16.4939684,10.77684 18.3611892,10 20.4146869,10 Z" id="Combined-Shape" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>

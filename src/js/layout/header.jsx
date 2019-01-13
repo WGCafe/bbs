@@ -32,13 +32,7 @@ class Header extends Component {
           mode="horizontal"
           defaultSelectedKeys={['1']}
         >
-          <Menu.Item key="1">首页</Menu.Item>
-          <Menu.Item key="2">记录</Menu.Item>
-          <Menu.Item key="3">
-            <i className="dot-icon">
-              <span></span>
-            </i>
-          </Menu.Item>
+          <Menu.Item key="1">话题</Menu.Item>
         </Menu>
         <div className="operation">
           <Dropdown overlay={menu}>

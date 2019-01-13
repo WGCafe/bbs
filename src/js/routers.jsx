@@ -41,6 +41,16 @@ const ResetPassword = Loadable({
   loading: () => null
 });
 
+const Profile = Loadable({
+  loader: () => import('./users/user-profile.jsx'),
+  loading: () => null
+});
+
+const ProfileEdit = Loadable({
+  loader: () => import('./users/profile-edit.jsx'),
+  loading: () => null
+});
+
 const Article = Loadable({
   loader: () => import('./pages/article.jsx'),
   loading: () => null
@@ -67,6 +77,8 @@ export default class Routers extends React.Component {
               <Route path="/search" component={Search} />
               <Route path="/signup" component={Signup} />
               <Route path="/signin" component={Signin} />
+              <Route path="/me" component={Profile} />
+              <Route path="/me-edit" component={ProfileEdit} />
               <Route path="/reset-password" component={ResetPassword} />
               <Route path="/article-detail/:article_id" component={Article} />
               <Route path="/404" component={PageNoFound} />

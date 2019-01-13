@@ -32,7 +32,9 @@ class Header extends Component {
           mode="horizontal"
           defaultSelectedKeys={['1']}
         >
-          <Menu.Item key="1">话题</Menu.Item>
+          <Menu.Item key="1">
+            <a href="/">话题</a>
+          </Menu.Item>
         </Menu>
         <div className="operation">
           <Dropdown overlay={menu}>

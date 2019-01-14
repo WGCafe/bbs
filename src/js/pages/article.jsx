@@ -27,10 +27,12 @@ class Article extends Component {
     const menu = (
       <Menu>
         <Menu.Item>
-          <a target="_blank" rel="noopener noreferrer" href="http://www.taobao.com/">删除</a>
+          <Icon type="edit" theme="filled" />
+          <a rel="noopener noreferrer" href="http://www.taobao.com/">删除</a>
         </Menu.Item>
         <Menu.Item>
-          <a target="_blank" rel="noopener noreferrer" href="http://www.tmall.com/">举报这个主题 </a>
+          <Icon type="exclamation-circle" theme="filled" />
+          <a rel="noopener noreferrer" href="http://www.tmall.com/">举报这个主题 </a>
         </Menu.Item>
       </Menu>
     );

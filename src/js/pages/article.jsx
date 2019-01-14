@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import {getArticle} from './actions/article-actions';
 
-import {List, Row, Col, Upload, Button, message, Icon, Input, Avatar} from 'antd';
+import {List, Row, Col, Upload, Button, message, Icon, Input, Avatar, Menu, Dropdown} from 'antd';
 import React, {Component} from 'react';
 import LayoutContainer from '../layout/container.jsx';
 
@@ -24,6 +24,16 @@ class Article extends Component {
 
   renderTopic() {
     const {article} = this.props;
+    const menu = (
+      <Menu>
+        <Menu.Item>
+          <a target="_blank" rel="noopener noreferrer" href="http://www.taobao.com/">删除</a>
+        </Menu.Item>
+        <Menu.Item>
+          <a target="_blank" rel="noopener noreferrer" href="http://www.tmall.com/">举报这个主题 </a>
+        </Menu.Item>
+      </Menu>
+    );
 
     return (
       <div>
@@ -45,9 +55,11 @@ class Article extends Component {
                 </div>
               </div>
             </div>
-            <div className="ant-list-item-extra">
-              <Icon type="ellipsis" />
-            </div>
+            <Dropdown overlay={menu}  placement="bottomRight" className="ant-list-item-extra">
+              <div className="ant-dropdown-link">
+                <Icon type="ellipsis" />
+              </div>
+            </Dropdown>
           </div>
         </div>
         <div className="article__contnet">

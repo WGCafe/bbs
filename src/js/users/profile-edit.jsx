@@ -1,6 +1,6 @@
 import LayoutContainer from '../layout/container.jsx';
 import React, {Component} from 'react';
-import {Avatar, Col, Divider, List, Button, Input} from 'antd';
+import {Avatar, Col, Divider, Button, Input} from 'antd';
 
 import '../../styles/common.less';
 

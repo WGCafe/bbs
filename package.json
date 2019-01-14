@@ -92,7 +92,7 @@
     "isomorphic-fetch": "^2.2.1",
     "joi-browser": "^13.4.0",
     "media-match": "^2.0.3",
-    "moment": "^2.10.6",
+    "moment": "^2.23.0",
     "mustache": "2.2.1",
     "object-path": "^0.11.4",
     "path-to-regexp": "^2.4.0",

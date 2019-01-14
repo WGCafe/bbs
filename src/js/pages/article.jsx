@@ -91,6 +91,11 @@ class Article extends Component {
                     </div>
 
                     <div className="article__comment-text">
+                      {
+                        item.source_comment
+                          ? <p className="article__source-comment">{item.source_comment}</p>
+                          : null
+                      }
                       <p>{item.content}</p>
                     </div>
                   </div>

@@ -18,7 +18,7 @@ router.get('/', function (req, res) {
         "is_thanks": true
       }, {
         "id": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ8",
-        "source_comment": "test-0",
+        "source_comment": null,
         "author_name": "Jessica",
         "content": "test",
         "create_time": 1234567890112,

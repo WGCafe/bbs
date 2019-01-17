@@ -51,6 +51,12 @@ class ApiUtil {
       getArticleList: {
         path: 'articles/'
       },
+      createArticle: {
+        path: 'article/'
+      },
+      deleteArticle: {
+        path: 'article/:article_id'
+      },
       getArticle: {
         path: 'article/:article_id'
       },

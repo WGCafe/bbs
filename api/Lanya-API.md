@@ -81,7 +81,7 @@ Content-Type  | application/json
                     new_message_num: 20
                 }
             }
-            
+
 + Response 404 (application/json)
 
     + Body
@@ -118,7 +118,7 @@ Token         | {user_token}
                 "status": "1000",
                 "context": {}
             }
-            
+
 + Response 404 (application/json)
 
     + Body
@@ -153,7 +153,7 @@ Content-Type  | application/json
                 "status": "1000",
                 "context": {}
             }
-            
+
 + Response 404 (application/json)
 
     + Body
@@ -169,7 +169,7 @@ Content-Type  | application/json
 # Profile
 
 
-## My Profile [GET /users/{user_id}]
+## My Profile [GET /users/:user_id]
 
 Headers       | Value
 ------------- | ----------------
@@ -190,7 +190,7 @@ Token         | {user_token}
                     create_time: 1234567890111
                 }
             }
-            
+
 + Response 404 (application/json)
 
     + Body
@@ -203,7 +203,7 @@ Token         | {user_token}
             }
 
 
-## Update Profile [PUT /users/{user_id}]
+## Update Profile [PUT /users/:user_id]
 
 Headers       | Value
 ------------- | ----------------
@@ -225,7 +225,7 @@ Token         | {user_token}
                 "status": "1000",
                 "context": {}
             }
-            
+
 + Response 404 (application/json)
 
     + Body
@@ -268,9 +268,9 @@ Token         | {user_token}
 			          	"id": 6,
 			          	"name": "种植"
 			        	}
-			    ]            
+			    ]
 			}
-            
+
 + Response 404 (application/json)
 
     + Body
@@ -308,7 +308,7 @@ Token         | {user_token}
                     id: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9"
                 }
             }
-            
+
 + Response 404 (application/json)
 
     + Body
@@ -321,7 +321,7 @@ Token         | {user_token}
             }
 
 
-## Delete Article [DELETE /article/{article_id}]
+## Delete Article [DELETE /article/:article_id]
 
 Headers       | Value
 ------------- | ----------------
@@ -337,7 +337,7 @@ Token         | {user_token}
                 "status": "1000",
                 "context": {}
             }
-            
+
 + Response 404 (application/json)
 
     + Body
@@ -350,7 +350,7 @@ Token         | {user_token}
             }
 
 
-## Get Article [GET /article/{article_id}]
+## Get Article [GET /article/:article_id]
 
 Headers       | Value
 ------------- | ----------------
@@ -376,7 +376,7 @@ Token         | {user_token}
 						comment_num: 3
                 }
             }
-            
+
 + Response 404 (application/json)
 
     + Body
@@ -389,7 +389,7 @@ Token         | {user_token}
             }
 
 
-## Report Article [POST  /article/{article_id}]
+## Report Article [POST  /article/:article_id]
 
 Headers       | Value
 ------------- | ----------------
@@ -409,7 +409,7 @@ Token         | {user_token}
                 "status": "1000",
                 "context": {}
             }
-            
+
 + Response 404 (application/json)
 
     + Body
@@ -458,7 +458,7 @@ Token         | {user_token}
                     }, ...]
                 }
             }
-            
+
 + Response 404 (application/json)
 
     + Body
@@ -473,7 +473,7 @@ Token         | {user_token}
 
 # Collection
 
-## Create Collection [POST /userfav/{article_id}]
+## Create Collection [POST /userfav/:article_id]
 
 Headers       | Value
 ------------- | ----------------
@@ -489,7 +489,7 @@ Token         | {user_token}
                 "status": "1000",
                 "context": {}
             }
-            
+
 + Response 404 (application/json)
 
     + Body
@@ -502,7 +502,7 @@ Token         | {user_token}
             }
 
 
-## Delete Collection [DELETE /userfav/{article_id}]
+## Delete Collection [DELETE /userfav/:article_id]
 
 Headers       | Value
 ------------- | ----------------
@@ -518,7 +518,7 @@ Token         | {user_token}
                 "status": "1000",
                 "context": {}
             }
-            
+
 + Response 404 (application/json)
 
     + Body
@@ -566,7 +566,7 @@ Token         | {user_token}
                     }, ...]
                 }
             }
-            
+
 + Response 404 (application/json)
 
     + Body
@@ -609,7 +609,7 @@ Token         | {user_token}
                     content: "test"
                 }
             }
-            
+
 + Response 404 (application/json)
 
     + Body
@@ -623,7 +623,7 @@ Token         | {user_token}
 
 
 
-## Delete Comment [DELETE /comment/{comment_id}]
+## Delete Comment [DELETE /comment/:comment_id]
 
 Headers       | Value
 ------------- | ----------------
@@ -639,7 +639,7 @@ Token         | {user_token}
                 "status": "1000",
                 "context": {}
             }
-            
+
 + Response 404 (application/json)
 
     + Body
@@ -653,7 +653,7 @@ Token         | {user_token}
 
 
 
-## Thanks Comment [PUT /comment/{comment_id}]
+## Thanks Comment [PUT /comment/:comment_id]
 
 Headers       | Value
 ------------- | ----------------
@@ -669,7 +669,7 @@ Token         | {user_token}
                 "status": "1000",
                 "context": {}
             }
-            
+
 + Response 404 (application/json)
 
     + Body
@@ -712,7 +712,7 @@ Token         | {user_token}
 						is_thanks: true
                 }, ...]
             }
-            
+
 + Response 404 (application/json)
 
     + Body
@@ -750,7 +750,7 @@ Token         | {user_token}
                     create_time: 1234567890111
                 }, ...]
             }
-            
+
 + Response 404 (application/json)
 
     + Body
@@ -763,7 +763,7 @@ Token         | {user_token}
             }
 
 
-## Read Message [POST /usermessage/{message_id}]
+## Read Message [POST /usermessage/:message_id]
 
 Headers       | Value
 ------------- | ----------------
@@ -779,7 +779,7 @@ Token         | {user_token}
                 "status": "1000",
                 "context": {}
             }
-            
+
 + Response 404 (application/json)
 
     + Body
@@ -790,12 +790,12 @@ Token         | {user_token}
                     error: {error_message}
                 }
             }
-            
+
 # Search
 
 ## Search Type Configration
 
-type          | 
+type          |
 ------------- | ----------------
 articles      |
 comments      |
@@ -842,7 +842,7 @@ Token         | {user_token}
 	                }, ...]
                 }
             }
-            
+
 + Response 404 (application/json)
 
     + Body

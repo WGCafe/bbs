@@ -1,8 +1,8 @@
 import {fork, all, take, call, put, actionChannel} from 'redux-saga/effects';
 import {handleApiErrorAction} from '../../utils/api-util';
 
-import {getArticleListSuccess, getArticleSuccess} from '../actions/article-actions';
-import {getArticleList, createArticle, getArticle} from '../services/article-services';
+import {getArticleListSuccess, deleteArticleSuccess, getArticleSuccess} from '../actions/article-actions';
+import {getArticleList, createArticle, deleteArticle, getArticle} from '../services/article-services';
 import {getCommentListSuccess} from '../actions/comment-actions';
 import {getCommentList} from '../services/comment-services';
 import Constants from '../../utils/constants';
@@ -17,7 +17,7 @@ const {
 export default function* root() {
   yield all([
     fork(watchGetArticleList),
-    fort(watchCreateArticle),
+    fork(watchCreateArticle),
     fork(watchDeleteArticle),
     fork(watchGetArticle)
   ]);
@@ -63,6 +63,8 @@ function* watchDeleteArticle() {
 
     try {
       const context = yield call(deleteArticle, req.options);
+
+      context.isDeleted = true;
 
       yield put(deleteArticleSuccess(context));
     } catch (e) {

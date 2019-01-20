@@ -12,7 +12,9 @@ export function createArticle(options) {
 }
 
 export function deleteArticle(options) {
-  return ApiFetch.delete(APIUtil.API_INFO.deleteArticle, options)
+  return ApiFetch.delete(APIUtil.API_INFO.deleteArticle, {
+    payload: options
+  })
     .then(({context}) => context);
 }
 

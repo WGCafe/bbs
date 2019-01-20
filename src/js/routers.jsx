@@ -51,6 +51,11 @@ const ProfileEdit = Loadable({
   loading: () => null
 });
 
+const NewArticle = Loadable({
+  loader: () => import('./pages/new-article.jsx'),
+  loading: () => null
+});
+
 const Article = Loadable({
   loader: () => import('./pages/article.jsx'),
   loading: () => null
@@ -80,6 +85,7 @@ export default class Routers extends React.Component {
               <Route path="/me" component={Profile} />
               <Route path="/me-edit" component={ProfileEdit} />
               <Route path="/reset-password" component={ResetPassword} />
+              <Route path="/new-article" component={NewArticle} />
               <Route path="/article-detail/:article_id" component={Article} />
               <Route path="/404" component={PageNoFound} />
               <Redirect exact path="/" to="/home" />

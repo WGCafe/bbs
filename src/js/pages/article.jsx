@@ -20,7 +20,7 @@ class Article extends Component {
     this.props.getArticle({article_id});
   }
 
-  componentWillReceiveProps() { }
+  componentWillReceiveProps() {}
 
   renderTopic() {
     const {article} = this.props;
@@ -28,11 +28,11 @@ class Article extends Component {
       <Menu>
         <Menu.Item>
           <Icon type="edit" theme="filled" />
-          <a rel="noopener noreferrer" href="http://www.taobao.com/">删除</a>
+          <span>删除</span>
         </Menu.Item>
         <Menu.Item>
           <Icon type="exclamation-circle" theme="filled" />
-          <a rel="noopener noreferrer" href="http://www.tmall.com/">举报这个主题 </a>
+          <span>举报这个主题</span>
         </Menu.Item>
       </Menu>
     );

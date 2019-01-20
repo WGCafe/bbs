@@ -66,12 +66,12 @@ class NewArticle extends Component {
                     <label htmlFor="">请选择一个分类：</label>
                     <div>
                       <Radio.Group onChange={this.onChange} value={null}>
-                        <Radio style={radioStyle} value={1}>讨论</Radio>
-                        <Radio style={radioStyle} value={2}>询问</Radio>
-                        <Radio style={radioStyle} value={3}>我是牙医</Radio>
-                        <Radio style={radioStyle} value={4}>牙套</Radio>
-                        <Radio style={radioStyle} value={5}>智齿</Radio>
-                        <Radio style={radioStyle} value={6}>种植</Radio>
+                        <Radio style={radioStyle} value={1}>讨论<span>讨论-一般的牙齿相关的讨论或吐槽</span></Radio>
+                        <Radio style={radioStyle} value={2}>询问<span>发布任何与牙齿相关的问题</span></Radio>
+                        <Radio style={radioStyle} value={3}>我是牙医<span>邀请社区成员向你提问</span></Radio>
+                        <Radio style={radioStyle} value={4}>牙套<span>正畸相关的话题，如牙套日记</span></Radio>
+                        <Radio style={radioStyle} value={5}>智齿<span>智慧也是一种负担</span></Radio>
+                        <Radio style={radioStyle} value={6}>种植<span>种植牙相关话题</span></Radio>
                       </Radio.Group>
                     </div>
                   </Form.Item>

@@ -90,12 +90,12 @@ class NewArticle extends Component {
 }
 
 NewArticle.propTypes = {
-  isDeleted: PropTypes.bool
+  article: PropTypes.Object
 };
 
 export default connect(({articles}) => {
   return {
-    isDeleted: articles.deletedArticle
+    article: articles.article
   };
 }, {
   createArticle

@@ -42,6 +42,7 @@ class NewArticle extends Component {
           <Row type="flex" justify="space-between" align="top" gutter={24}>
             <Col span={17}>
               <Card
+                className="article__container"
                 title="发布新主题"
               >
                 <Form>
@@ -51,15 +52,13 @@ class NewArticle extends Component {
                   </Form.Item>
                   <Form.Item>
                     <label htmlFor="">正文</label>
-                    <div className="article__upload">
-                      <div className="article__upload-textarea">
-                        <img className="article-topic__img"/>
-                        <TextArea rows={4}  placeholder="输入状态" />
-                        <Upload className="article__upload-image" {...props}>
-                          <Icon type="picture" theme="filled" />
-                          <span className="text-middle">添加图片</span>
-                        </Upload>
-                      </div>
+                    <div className="article__upload-textarea">
+                      <img className="article-topic__img"/>
+                      <TextArea rows={4}  placeholder="输入状态" />
+                      <Upload className="article__upload-image" {...props}>
+                        <Icon type="picture" theme="filled" />
+                        <span className="text-middle">添加图片</span>
+                      </Upload>
                     </div>
                   </Form.Item>
                   <Form.Item>

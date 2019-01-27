@@ -1,5 +1,9 @@
-import {Layout, Menu, Dropdown, Icon, Button} from 'antd';
+import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
 import React, {Component} from 'react';
+
+import {Layout, Menu, Dropdown, Icon, Button} from 'antd';
 
 import '../../styles/common.less';
 
@@ -8,8 +12,8 @@ class Header extends Component {
 
   componentWillReceiveProps() {}
 
-  render() {
-    const menu = (
+  renderMenu() {
+    return (
       <Menu>
         <Menu.Item key="3">
           <a target="_blank" rel="noopener noreferrer" href="#/message">2 新消息</a>
@@ -23,6 +27,11 @@ class Header extends Component {
         </Menu.Item>
       </Menu>
     );
+  }
+
+  render() {
+    const {isLogin} = this.props;
+    const newArticleUrl = isLogin ? '/new-article' : '/signin';
 
     return (
       <Layout.Header className="header">
@@ -37,20 +46,34 @@ class Header extends Component {
           </Menu.Item>
         </Menu>
         <div className="operation">
-          <Dropdown overlay={menu}>
+          <Dropdown placement="bottomRight" overlay={this.renderMenu()}>
             <a className="operation-dropdown ant-dropdown-link" href="#">
               <span className="text-middle">z.zhou</span>
               <Icon className="operation-dropdown__caret text-middle" type="caret-down" />
             </a>
           </Dropdown>
           <Button className="operation__search" icon="search" />
-          <Button type="primary">发布新话题</Button>
+          <Link className="ant-btn ant-btn-primary" to={newArticleUrl}>
+            <span>发布新话题</span>
+          </Link>
         </div>
       </Layout.Header>
     );
   }
 }
 
-Header.propTypes = {};
+Header.propTypes = {
+  isLogin: PropTypes.bool
+};
 
-export default Header;
+Header.defaultProps = {
+  isLogin: false
+};
+
+export default connect(({
+  user
+}) => {
+  return {
+    isLogin: user.isUserAuthenticated.isLogin
+  };
+})(Header);

@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import {Link} from 'react-router-dom';
 
 import {Icon, List, Avatar} from 'antd';
 import React, {Component} from 'react';
@@ -27,6 +28,7 @@ class PostList extends Component {
         itemLayout="horizontal"
         dataSource={postList}
         renderItem={item => {
+          const itemUrl = `/article-detail/${item.id}`;
 
           return (
             <List.Item className="post__item">
@@ -39,7 +41,9 @@ class PostList extends Component {
                   ) : null
                 }
                 <div className="ant-list-item-meta-content">
-                  <h4 className="ant-list-item-meta-title"><a className="post__item-title" href="">{item.title}</a></h4>
+                  <h4 className="ant-list-item-meta-title">
+                    <Link className="post__item-title" to={itemUrl}>{item.title}</Link>
+                  </h4>
                   <div className="ant-list-item-meta-description">
                     <div className="post__item-info">
                       <span className="text-middle">{item.comments_num} 回复</span>

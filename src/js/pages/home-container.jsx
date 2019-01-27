@@ -64,6 +64,12 @@ class HomeContainer extends Component {
       return;
     }
 
+    const {isLogin} = this.props;
+
+    if (!isLogin) {
+      window.location = '/#/signin';
+    }
+
     const cllectionIndex = OPERATION_TYPES.findIndex(item => item === COLLECTION_TYPE_NAME);
 
     if (cllectionIndex !== -1) {
@@ -162,6 +168,7 @@ class HomeContainer extends Component {
 }
 
 HomeContainer.propTypes = {
+  isLogin: PropTypes.bool,
   tabs: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number,
     name: PropTypes.string
@@ -171,17 +178,20 @@ HomeContainer.propTypes = {
 };
 
 HomeContainer.defaultProps = {
+  isLogin: false,
   tabs: [],
   postList: [],
   collections: []
 };
 
 export default connect(({
+  user,
   articleType,
   articles,
   operation
 }) => {
   return {
+    isLogin: user.isUserAuthenticated.isLogin,
     tabs: articleType.articleTypeList,
     postList: articles.articleList.articles,
     collections: operation.collectionList.articles

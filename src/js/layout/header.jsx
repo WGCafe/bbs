@@ -12,6 +12,16 @@ class Header extends Component {
 
   componentWillReceiveProps() {}
 
+  renderSignButton() {
+    return (
+      <div className="operation__sigin">
+        <Link to="">注册</Link>
+        <span>/</span>
+        <Link to="">登录</Link>
+      </div>
+    );
+  }
+
   renderMenu() {
     return (
       <Menu>
@@ -46,12 +56,18 @@ class Header extends Component {
           </Menu.Item>
         </Menu>
         <div className="operation">
-          <Dropdown placement="bottomRight" overlay={this.renderMenu()}>
-            <a className="operation-dropdown ant-dropdown-link" href="#">
-              <span className="text-middle">z.zhou</span>
-              <Icon className="operation-dropdown__caret text-middle" type="caret-down" />
-            </a>
-          </Dropdown>
+          {
+            isLogin
+              ? (
+                <Dropdown placement="bottomRight" overlay={this.renderMenu()}>
+                  <div className="operation-dropdown ant-dropdown-link">
+                    <span className="text-middle">z.zhou</span>
+                    <Icon className="operation-dropdown__caret text-middle" type="caret-down" />
+                  </div>
+                </Dropdown>
+              )
+              : this.renderSignButton()
+          }
           <Button className="operation__search" icon="search" />
           <Link className="ant-btn ant-btn-primary" to={newArticleUrl}>
             <span>发布新话题</span>

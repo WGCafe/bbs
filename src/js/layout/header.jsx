@@ -15,9 +15,9 @@ class Header extends Component {
   renderSignButton() {
     return (
       <div className="operation__sigin">
-        <Link to="">注册</Link>
-        <span>/</span>
-        <Link to="">登录</Link>
+        <Link to="/signup">注册</Link>
+        <span> / </span>
+        <Link to="/signin">登录</Link>
       </div>
     );
   }

@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {getArticleTypeList} from './actions/article-type-actions';
 import {getArticleList} from './actions/article-actions';
 import {getCollectionList} from './actions/operation-actions';
+import CommonUtils from '../utils/common-util';
 import Constants from '../utils/constants';
 
 import React, {Component} from 'react';
@@ -66,9 +67,7 @@ class HomeContainer extends Component {
 
     const {isLogin} = this.props;
 
-    if (!isLogin) {
-      window.location = '/#/signin';
-    }
+    CommonUtils.turnToSignIn(isLogin);
 
     const cllectionIndex = OPERATION_TYPES.findIndex(item => item === COLLECTION_TYPE_NAME);
 
@@ -92,6 +91,9 @@ class HomeContainer extends Component {
   }
 
   handleToggleLike() {
+    const {isLogin} = this.props;
+
+    CommonUtils.turnToSignIn(isLogin);
   }
 
   renderTabPane(tabOptions) {

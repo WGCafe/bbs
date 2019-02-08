@@ -1,5 +1,9 @@
 import {Layout, Menu, Dropdown, Icon, Button, List, Row, Col} from 'antd';
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
+
+import CommonUtils from '../utils/common-util';
 
 const {
   Header,
@@ -8,6 +12,12 @@ const {
 
 class Search extends Component {
   componentWillMount() {}
+
+  componentDidMount() {
+    const {isLogin} = this.props;
+
+    CommonUtils.turnToSignIn(isLogin);
+  }
 
   componentWillReceiveProps() {}
 
@@ -94,6 +104,19 @@ class Search extends Component {
   }
 }
 
-Search.propTypes = {};
+Search.propTypes = {
+  isLogin: PropTypes.bool
+};
 
-export default Search;
+Search.defaultProps = {
+  isLogin: false
+};
+
+export default connect(({
+  user
+}) => {
+  return {
+    isLogin: user.isUserAuthenticated.isLogin
+  };
+}, {
+})(Search);

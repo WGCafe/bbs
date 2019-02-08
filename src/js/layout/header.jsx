@@ -45,7 +45,9 @@ class Header extends Component {
 
     return (
       <Layout.Header className="header">
-        <div className="header__logo text-middle" />
+        <Link className="header__logo-link" to="/">
+          <div className="header__logo text-middle" />
+        </Link>
         <Menu
           className="text-middle"
           mode="horizontal"

@@ -11,7 +11,7 @@ const {Content} = Layout;
 
 
 class LayoutContainer extends Component {
-  componentWillReceiveProps() {}
+  componentWillMount() {}
 
   componentDidMount() {
     const {cookies} = this.props;
@@ -21,8 +21,6 @@ class LayoutContainer extends Component {
       userToken
     });
   }
-
-  componentWillMount() {}
 
   render() {
     const {children} = this.props;

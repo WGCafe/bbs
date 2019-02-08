@@ -5,6 +5,7 @@ import {createArticle} from './actions/article-actions';
 import {Row, Col, Card, Form, Input, Upload, message, Icon, Radio, Button} from 'antd';
 import React, {Component} from 'react';
 import LayoutContainer from '../layout/container.jsx';
+import CommonUtils from '../utils/common-util';
 
 const {TextArea} = Input;
 
@@ -21,6 +22,13 @@ class NewArticle extends Component {
 
   componentWillMount() {
   }
+
+  componentDidMount() {
+    const {isLogin} = this.props;
+
+    CommonUtils.turnToSignIn(isLogin);
+  }
+
 
   componentWillReceiveProps() {
   }
@@ -106,11 +114,20 @@ class NewArticle extends Component {
 }
 
 NewArticle.propTypes = {
+  isLogin: PropTypes.bool,
   article: PropTypes.Object
 };
 
-export default connect(({articles}) => {
+NewArticle.defaultProps = {
+  isLogin: false
+};
+
+export default connect(({
+  user,
+  articles
+}) => {
   return {
+    isLogin: user.isUserAuthenticated.isLogin,
     article: articles.article
   };
 }, {

@@ -47,6 +47,12 @@ class CommonUtil {
 
     return this.getCookie(cookieString, TOKEN_COOKIE_NAME);
   }
+
+  static turnToSignIn(isLogin) {
+    if (!isLogin) {
+      window.location = '/#/signin';
+    }
+  }
 }
 
 export default CommonUtil;

@@ -1,5 +1,7 @@
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {getArticle} from './actions/article-actions';
+import CommonUtils from '../utils/common-util';
 
 import {List, Row, Col, Upload, Button, message, Icon, Input, Avatar, Menu, Dropdown} from 'antd';
 import React, {Component} from 'react';
@@ -18,6 +20,12 @@ class Article extends Component {
     const {article_id = ''} = match.params;
 
     this.props.getArticle({article_id});
+  }
+
+  componentDidMount() {
+    const {isLogin} = this.props;
+
+    CommonUtils.turnToSignIn(isLogin);
   }
 
   componentWillReceiveProps() {}
@@ -172,13 +180,21 @@ class Article extends Component {
   }
 }
 
-Article.propTypes = {};
+Article.propTypes = {
+  isLogin: PropTypes.bool
+};
+
+Article.defaultProps = {
+  isLogin: false
+};
 
 export default connect(({
+  user,
   articles,
   comments
 }) => {
   return {
+    isLogin: user.isUserAuthenticated.isLogin,
     article: articles.article,
     commentList: comments.commentList
   };

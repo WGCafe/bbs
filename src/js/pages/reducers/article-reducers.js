@@ -4,7 +4,8 @@ import Constants from '../../utils/constants';
 const {
   ARTICLE_LIST,
   DELETED_ARTICLE,
-  ARTICLE
+  ARTICLE,
+  REPORTED_ARTICLE
 } = Constants.ACTIONS_NAME;
 
 function articleList(state = {}, action) {
@@ -34,10 +35,20 @@ function deletedArticle(state = null, action) {
   }
 }
 
+function reportedArticle(state = null, action) {
+  switch (action.type) {
+    case REPORTED_ARTICLE:
+      return action.data;
+    default:
+      return state;
+  }
+}
+
 const common = combineReducers({
   articleList,
   article,
-  deletedArticle
+  deletedArticle,
+  reportedArticle
 });
 
 export default function root(state, action) {

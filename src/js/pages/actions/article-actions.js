@@ -7,7 +7,9 @@ const {
   DELETE_ARTICLE,
   DELETED_ARTICLE,
   GET_ARTICLE,
-  ARTICLE
+  ARTICLE,
+  REPORT_ARTICLE,
+  REPORTED_ARTICLE
 } = Constants.ACTIONS_NAME;
 
 export function getArticleList(options) {
@@ -55,6 +57,20 @@ export function getArticle(options) {
 export function getArticleSuccess(data) {
   return {
     type: ARTICLE,
+    data
+  };
+}
+
+export function reportArticle(options) {
+  return {
+    type: REPORT_ARTICLE,
+    options
+  };
+}
+
+export function reportArticleSuccess(data) {
+  return {
+    type: REPORTED_ARTICLE,
     data
   };
 }

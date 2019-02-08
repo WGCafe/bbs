@@ -12,13 +12,16 @@ export function createArticle(options) {
 }
 
 export function deleteArticle(options) {
-  return ApiFetch.delete(APIUtil.API_INFO.deleteArticle, {
-    payload: options
-  })
+  return ApiFetch.delete(APIUtil.assemblePath(APIUtil.API_INFO.deleteArticle, options))
     .then(({context}) => context);
 }
 
 export function getArticle(options) {
   return ApiFetch.get(APIUtil.assemblePath(APIUtil.API_INFO.getArticle, options))
+    .then(({context}) => context);
+}
+
+export function reportArticle(options) {
+  return ApiFetch.post(APIUtil.assemblePath(APIUtil.API_INFO.getArticle, options))
     .then(({context}) => context);
 }

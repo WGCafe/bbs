@@ -1,8 +1,19 @@
 import {fork, all, take, call, put, actionChannel} from 'redux-saga/effects';
 import {handleApiErrorAction} from '../../utils/api-util';
 
-import {getArticleListSuccess, deleteArticleSuccess, getArticleSuccess} from '../actions/article-actions';
-import {getArticleList, createArticle, deleteArticle, getArticle} from '../services/article-services';
+import {
+  getArticleListSuccess,
+  deleteArticleSuccess,
+  getArticleSuccess,
+  reportArticleSuccess
+} from '../actions/article-actions';
+import {
+  getArticleList,
+  createArticle,
+  deleteArticle,
+  getArticle,
+  reportArticle
+} from '../services/article-services';
 import {getCommentListSuccess} from '../actions/comment-actions';
 import {getCommentList} from '../services/comment-services';
 import Constants from '../../utils/constants';
@@ -11,7 +22,8 @@ const {
   GET_ARTICLE_LIST,
   CREATE_ARTICLE,
   DELETE_ARTICLE,
-  GET_ARTICLE
+  GET_ARTICLE,
+  REPORT_ARTICLE
 } = Constants.ACTIONS_NAME;
 
 export default function* root() {
@@ -19,7 +31,8 @@ export default function* root() {
     fork(watchGetArticleList),
     fork(watchCreateArticle),
     fork(watchDeleteArticle),
-    fork(watchGetArticle)
+    fork(watchGetArticle),
+    fork(watchReportArticle)
   ]);
 }
 
@@ -85,6 +98,22 @@ function* watchGetArticle() {
 
       yield put(getArticleSuccess(article));
       yield put(getCommentListSuccess(comments));
+    } catch (e) {
+      yield put(handleApiErrorAction(e));
+    }
+  }
+}
+
+function* watchReportArticle() {
+  const reportArticleAction = yield actionChannel(REPORT_ARTICLE);
+
+  while (true) {
+    const req = yield take(reportArticleAction);
+
+    try {
+      const context = yield call(reportArticle, req.options);
+
+      yield put(reportArticleSuccess(context));
     } catch (e) {
       yield put(handleApiErrorAction(e));
     }

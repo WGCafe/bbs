@@ -4,7 +4,7 @@ import articleTypeReducer from '../pages/reducers/article-type-reducers';
 import articlesReducer from '../pages/reducers/article-reducers';
 import commentReducers from '../pages/reducers/comment-reducers';
 import userReducer from '../pages/reducers/user-reducer';
-import operationReducer from '../pages/reducers/operation-reducers';
+import collectionReducer from '../pages/reducers/collection-reducers';
 import messageReducer from '../pages/reducers/message-reducers';
 
 const rootReducers = combineReducers({
@@ -13,7 +13,7 @@ const rootReducers = combineReducers({
   articles: articlesReducer,
   comments: commentReducers,
   user: userReducer,
-  operation: operationReducer,
+  collection: collectionReducer,
   message: messageReducer
 });
 

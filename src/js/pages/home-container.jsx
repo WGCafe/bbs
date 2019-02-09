@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {getArticleTypeList} from './actions/article-type-actions';
 import {getArticleList} from './actions/article-actions';
-import {getCollectionList} from './actions/operation-actions';
+import {getCollectionList} from './actions/collection-actions';
 import CommonUtils from '../utils/common-util';
 import Constants from '../utils/constants';
 

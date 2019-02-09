@@ -4,7 +4,7 @@ import feedbackSage from '../common/sagas/feedback-saga';
 import articleTypeSaga from '../pages/sagas/article-type-sagas';
 import articleSaga from '../pages/sagas/article-sagas';
 import userSaga from '../pages/sagas/user-sagas';
-import operationSaga from '../pages/sagas/operation-sagas';
+import collectionSaga from '../pages/sagas/collection-sagas';
 import messageSaga from '../pages/sagas/message-sagas';
 
 export default function* root() {
@@ -13,7 +13,7 @@ export default function* root() {
     fork(articleTypeSaga),
     fork(articleSaga),
     fork(userSaga),
-    fork(operationSaga),
+    fork(collectionSaga),
     fork(messageSaga)
   ]);
 }

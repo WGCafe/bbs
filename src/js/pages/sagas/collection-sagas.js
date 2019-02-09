@@ -4,11 +4,11 @@ import {handleApiErrorAction} from '../../utils/api-util';
 import {
   getCollectionListSuccess,
   submitedCollection
-} from '../actions/operation-actions';
+} from '../actions/collection-actions';
 import {
   getCollectionList,
   submitCollection
-} from '../services/operation-services';
+} from '../services/collection-services';
 import Constants from '../../utils/constants';
 
 const {

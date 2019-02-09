@@ -6,7 +6,7 @@ export function getCollectionList(options) {
     .then(({context}) => context);
 }
 
-export function submitCollection(data) {
-  return ApiFetch.post(APIUtil.API_INFO.submitCollection, {payload: data})
+export function submitCollection(options) {
+  return ApiFetch.post(APIUtil.API_INFO.submitCollection, {payload: options})
     .then(({context}) => context);
 }

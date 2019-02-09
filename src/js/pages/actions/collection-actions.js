@@ -1,11 +1,19 @@
 import Constants from '../../utils/constants';
 
 const {
+  CREATE_COLLECTION,
   GET_COLLECTION_LIST,
   COLLECTION_LIST,
   SUBMIT_COLLECTION,
   SUBMITED_COLLECTION
 } = Constants.ACTIONS_NAME;
+
+export function createCollection(options) {
+  return {
+    type: CREATE_COLLECTION,
+    options
+  };
+}
 
 export function getCollectionList() {
   return {
@@ -20,10 +28,10 @@ export function getCollectionListSuccess(data) {
   };
 }
 
-export function submitCollection(data) {
+export function submitCollection(options) {
   return {
     type: SUBMIT_COLLECTION,
-    data
+    options
   };
 }
 

@@ -190,13 +190,13 @@ export default connect(({
   user,
   articleType,
   articles,
-  operation
+  collection
 }) => {
   return {
     isLogin: user.isUserAuthenticated.isLogin,
     tabs: articleType.articleTypeList,
     postList: articles.articleList.articles,
-    collections: operation.collectionList.articles
+    collections: collection.collectionList.articles
   };
 }, {
   getArticleTypeList,

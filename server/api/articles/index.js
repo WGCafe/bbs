@@ -38,7 +38,7 @@ router.get('/', function (req, res) {
           "comments_num": 12,
           "create_time": 1234567890111,
           "author_name": "Jessica",
-          "is_collection": false
+          "is_collection": true
         }]
       }
     );

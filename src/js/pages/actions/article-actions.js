@@ -40,10 +40,10 @@ export function deleteArticle(options) {
   };
 }
 
-export function deleteArticleSuccess(options) {
+export function deleteArticleSuccess(data) {
   return {
     type: DELETED_ARTICLE,
-    options
+    data
   };
 }
 

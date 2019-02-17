@@ -2,7 +2,11 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {getArticleTypeList} from './actions/article-type-actions';
 import {getArticleList} from './actions/article-actions';
-import {getCollectionList} from './actions/collection-actions';
+import {
+  createCollection,
+  deleteCollection,
+  getCollectionList
+} from './actions/collection-actions';
 import CommonUtils from '../utils/common-util';
 import Constants from '../utils/constants';
 
@@ -90,10 +94,23 @@ class HomeContainer extends Component {
     this.setState({activeKey});
   }
 
-  handleToggleLike() {
-    const {isLogin} = this.props;
+  handleToggleLike(article) {
+    const {
+      isLogin,
+      createCollection,
+      deleteCollection
+    } = this.props;
+    const options = {
+      article_id: article.id
+    };
 
     CommonUtils.turnToSignIn(isLogin);
+
+    if (isLogin && !article.is_collection) {
+      createCollection(options);
+    } else if (isLogin && article.is_collection) {
+      deleteCollection(options);
+    }
   }
 
   renderTabPane(tabOptions) {
@@ -201,5 +218,7 @@ export default connect(({
 }, {
   getArticleTypeList,
   getArticleList,
+  createCollection,
+  deleteCollection,
   getCollectionList
 })(HomeContainer);

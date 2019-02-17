@@ -2,6 +2,9 @@ import Constants from '../../utils/constants';
 
 const {
   CREATE_COLLECTION,
+  DELETE_COLLECTION,
+  DELETED_COLLECTION,
+  COLLECTION,
   GET_COLLECTION_LIST,
   COLLECTION_LIST,
   SUBMIT_COLLECTION,
@@ -11,6 +14,27 @@ const {
 export function createCollection(options) {
   return {
     type: CREATE_COLLECTION,
+    options
+  };
+}
+
+export function createCollectionSuccess(data) {
+  return {
+    type: COLLECTION,
+    data
+  };
+}
+
+export function deleteCollection(options) {
+  return {
+    type: DELETE_COLLECTION,
+    options
+  };
+}
+
+export function deleteCollectionSuccess(options) {
+  return {
+    type: DELETED_COLLECTION,
     options
   };
 }

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 import Header from '../layout/header.jsx';
 import Content from '../layout/content.jsx';
-import CommonUtils from '../utils/common-util';
+// import CommonUtils from '../utils/common-util';
 
 class Message extends Component {
   componentWillMount() {}
@@ -13,9 +13,9 @@ class Message extends Component {
   componentWillReceiveProps() {}
 
   componentDidMount() {
-    const {isLogin} = this.props;
+    // const {isLogin} = this.props;
 
-    CommonUtils.turnToSignIn(isLogin);
+    // CommonUtils.turnToSignIn(isLogin);
   }
 
   render() {
@@ -32,13 +32,6 @@ class Message extends Component {
       {
         title: 'Ant Design Title 4'
       }
-    ];
-    const data2 = [
-      'Racing car sprays burning fuel into crowd.',
-      'Japanese princess to wed commoner.',
-      'Australian walks 100km after outback crash.',
-      'Man charged over missing wedding girl.',
-      'Los Angeles battles huge wildfires.'
     ];
 
     return (
@@ -73,18 +66,7 @@ class Message extends Component {
                 />
               </Col>
               <Col span={7}>
-                <List
-                  className="side-list"
-                  split={false}
-                  header={<div><h2 className="side-list__title">Community Guidelines</h2></div>}
-                  dataSource={data2}
-                  renderItem={item => (
-                    <List.Item>
-                      <h4 className="side-list__item-title">Aenean euismod</h4>
-                      <p className="side-list__item-detail">{item}</p>
-                    </List.Item>
-                  )}
-                />
+                {/* <SideList/> */}
               </Col>
             </Row>
           </div>

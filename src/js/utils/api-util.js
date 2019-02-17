@@ -67,6 +67,12 @@ class ApiUtil {
       },
 
       /* Collection */
+      createCollection: {
+        path: '/userfav/:article_id'
+      },
+      deleteCollection: {
+        path: '/userfav/:article_id'
+      },
       getCollectionList: {
         path: 'userfav/'
       },

@@ -1,22 +1,25 @@
-import {Layout, List, Row, Col} from 'antd';
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
+import {getMessageList} from './actions/message-actions';
 
+import React, {Component} from 'react';
 import Header from '../layout/header.jsx';
+import {Layout, List, Row, Col} from 'antd';
 import Content from '../layout/content.jsx';
 // import CommonUtils from '../utils/common-util';
 
 class Message extends Component {
-  componentWillMount() {}
-
-  componentWillReceiveProps() {}
-
-  componentDidMount() {
-    // const {isLogin} = this.props;
+  componentWillMount() {
+    const {isLogin} = this.props;
 
     // CommonUtils.turnToSignIn(isLogin);
+
+    if (isLogin) {
+      this.props.getMessageList();
+    }
   }
+
+  componentWillReceiveProps() {}
 
   render() {
     const data = [
@@ -77,7 +80,8 @@ class Message extends Component {
 }
 
 Message.PropTypes = {
-  isLogin: PropTypes.bool
+  isLogin: PropTypes.bool,
+  messageList: PropTypes
 };
 
 Message.defaultProps = {
@@ -85,10 +89,13 @@ Message.defaultProps = {
 };
 
 export default connect(({
-  user
+  user,
+  message
 }) => {
   return {
-    isLogin: user.isUserAuthenticated.isLogin
+    isLogin: user.isUserAuthenticated.isLogin,
+    messageList: message.messageList
   };
 }, {
+  getMessageList
 })(Message);

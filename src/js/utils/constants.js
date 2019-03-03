@@ -13,6 +13,10 @@ class Constants {
       GET_USER_SIGN_IN: 'GET_USER_SIGN_IN',
       USER_SIGN_IN: 'USER_SIGN_IN',
 
+      /* My Profile */
+      GET_MY_PROFILE: 'GET_MY_PROFILE',
+      'MY_PROFILE_FETCHED': 'MY_PROFILE_FETCHED',
+
       /* Article Type */
       GET_ARTICLE_TYPE_LIST: 'GET_ARTICLE_TYPE_LIST',
       ARTICLE_TYPE_LIST: 'ARTICLE_TYPE_LIST',

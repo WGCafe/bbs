@@ -30,7 +30,7 @@ class Header extends Component {
         </Menu.Item>
         <Menu.Divider />
         <Menu.Item key="0">
-          <a target="_blank" rel="noopener noreferrer" href="http://www.alipay.com/">编辑个人资料</a>
+          <a target="_blank" rel="noopener noreferrer" href="#/me">个人中心</a>
         </Menu.Item>
         <Menu.Item key="1">
           <a target="_blank" rel="noopener noreferrer" href="http://www.taobao.com/">退出</a>

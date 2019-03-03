@@ -22,20 +22,7 @@ class Message extends Component {
   componentWillReceiveProps() {}
 
   render() {
-    const data = [
-      {
-        title: 'Ant Design Title 1'
-      },
-      {
-        title: 'Ant Design Title 2'
-      },
-      {
-        title: 'Ant Design Title 3'
-      },
-      {
-        title: 'Ant Design Title 4'
-      }
-    ];
+    const {messageList} = this.props;
 
     return (
       <Layout className="layout">
@@ -50,16 +37,16 @@ class Message extends Component {
                 </div>
                 <List
                   itemLayout="horizontal"
-                  dataSource={data}
+                  dataSource={messageList}
                   renderItem={item => (
                     <List.Item className="message__item active">
                       <div className="ant-list-item-meta post__item-meta">
                         <div className="ant-list-item-meta-content">
-                          <h4 className="ant-list-item-meta-title"><span>nancy hugo 回复了 </span><a className="post__item-title" href="">{item.title}</a></h4>
-                          <p className="message__content">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                          <h4 className="ant-list-item-meta-title"><span>{item.author_name} 回复了 </span><a className="post__item-title" href="">{item.title}</a></h4>
+                          <p className="message__content">{item.article_title}</p>
                           <div className="ant-list-item-meta-description">
                             <div className="post__item-info">
-                              <span className="text-middle">4 小时前</span>
+                              <span className="text-middle">{item.create_time}</span>
                             </div>
                           </div>
                         </div>

@@ -2,7 +2,7 @@ import Constants from '../../utils/constants';
 
 const {
   GET_MESSAGE_LIST,
-  MESSAGE_LIST_GOT,
+  MESSAGE_LIST,
   READ_MESSAGE,
   MESSAGE_READ,
   DELETE_MESSAGE,
@@ -16,9 +16,9 @@ export function getMessageList(data) {
   };
 }
 
-export function messageListGot(data) {
+export function messageListSuccess(data) {
   return {
-    type: MESSAGE_LIST_GOT,
+    type: MESSAGE_LIST,
     data
   };
 }

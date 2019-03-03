@@ -2,16 +2,12 @@ import {combineReducers} from 'redux';
 import Constants from '../../utils/constants';
 
 const {
-  MESSAGE_LIST_GOT,
-  MESSAGE_READ,
-  MESSAGE_DELETED
+  MESSAGE_LIST
 } = Constants.ACTIONS_NAME;
 
 function messageList(state = [], action) {
   switch (action.type) {
-    case MESSAGE_LIST_GOT:
-    case MESSAGE_READ:
-    case MESSAGE_DELETED:
+    case MESSAGE_LIST:
       return action.data;
     default:
       return state;

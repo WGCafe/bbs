@@ -1,7 +1,7 @@
 import {fork, all, take, call, put, actionChannel} from 'redux-saga/effects';
 import {handleApiErrorAction} from '../../utils/api-util';
 
-import {messageListGot, messageRead, messageDeleted} from '../actions/message-actions';
+import {messageListSuccess, messageRead, messageDeleted} from '../actions/message-actions';
 import {getMessageList, readMessage, deleteMessage} from '../services/message-services';
 import Constants from '../../utils/constants';
 
@@ -13,13 +13,13 @@ const {
 
 export default function* root() {
   yield all([
-    fork(watchMessageListGot),
+    fork(watchGetMessageList),
     fork(watchReadMessage),
     fork(watchDeleteMessage)
   ]);
 }
 
-function* watchMessageListGot() {
+function* watchGetMessageList() {
   const getMessageListAction = yield actionChannel(GET_MESSAGE_LIST);
 
   while (true) {
@@ -28,7 +28,7 @@ function* watchMessageListGot() {
     try {
       const context = yield call(getMessageList, action.data);
 
-      yield put(messageListGot(context.results));
+      yield put(messageListSuccess(context));
     } catch (e) {
       yield put(handleApiErrorAction(e));
     }
@@ -44,7 +44,7 @@ function* watchReadMessage() {
     try {
       const context = yield call(readMessage, action.data);
 
-      yield put(messageRead(context.results));
+      yield put(messageRead(context));
     } catch (e) {
       yield put(handleApiErrorAction(e));
     }
@@ -60,7 +60,7 @@ function* watchDeleteMessage() {
     try {
       const context = yield call(deleteMessage, action.data);
 
-      yield put(messageDeleted(context.results));
+      yield put(messageDeleted(context));
     } catch (e) {
       yield put(handleApiErrorAction(e));
     }

@@ -66,9 +66,9 @@ class Message extends Component {
   }
 }
 
-Message.PropTypes = {
+Message.propTypes = {
   isLogin: PropTypes.bool,
-  messageList: PropTypes
+  messageList: PropTypes.array
 };
 
 Message.defaultProps = {

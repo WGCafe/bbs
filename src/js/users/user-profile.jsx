@@ -1,6 +1,9 @@
 import LayoutContainer from '../layout/container.jsx';
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import {Tabs, Avatar, Col, Icon} from 'antd';
+import {getUserProfile} from '../pages/actions/profile-actions';
+// import MyPost from './my-post';
 
 import '../../styles/common.less';
 
@@ -15,11 +18,17 @@ class UserProfile extends Component {
 
   componentWillMount() {}
 
-  componentDidMount() {}
+  componentDidMount() {
+    this.props.getUserProfile({
+      userId: 'fake-userId'
+    });
+  }
 
   componentWillReceiveProps() {}
 
   render() {
+    const {name, location, registerTime, avatar} = this.props.myProfile;
+
     return (
       <LayoutContainer>
         <div className="post__container container">
@@ -27,21 +36,23 @@ class UserProfile extends Component {
             <div className="user__profile">
               <div className="user__profile-avatar">
                 <Avatar size={64}
-                  src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1546687975222&di=4301421c6f6f43eb14ca4f35ed1cf338&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201705%2F21%2F20170521090448_5NtYa.jpeg"
+                  src={avatar}
                   icon="user"
                 />
               </div>
               <div className="user__profile-info">
                 <div className="user__profile-content">
-                  <span>Zhou</span>
+                  <span>{name}</span>
                 </div>
                 <div className="user__profile-content">
                   <Icon type="home" />
-                  <span>Zhou</span>
+                  <span>{this.props.name}</span>
+                  <span>{location}</span>
                 </div>
                 <div className="user__profile-content">
                   <Icon type="home" />
-                  <span>Zhou</span>
+                  <span>{this.props.name}</span>
+                  <span>{registerTime}</span>
                 </div>
               </div>
               <div className="user__profile-edit">
@@ -49,8 +60,16 @@ class UserProfile extends Component {
               </div>
             </div>
             <Tabs defaultActiveKey="1">
-              <TabPane tab="主题" key="1">话题</TabPane>
-              <TabPane tab="回复" key="2">回复</TabPane>
+              <TabPane tab="主题" key="1">
+                <p>Content of Tab Pane 1</p>
+                <p>Content of Tab Pane 1</p>
+                <p>Content of Tab Pane 1</p>
+              </TabPane>
+              <TabPane tab="回复" key="2">
+                <p>Content of Tab Pane 2</p>
+                <p>Content of Tab Pane 2</p>
+                <p>Content of Tab Pane 2</p>
+              </TabPane>
             </Tabs>
           </Col>
         </div>
@@ -61,4 +80,12 @@ class UserProfile extends Component {
 
 UserProfile.propTypes = {};
 
-export default UserProfile;
+export default connect(({
+  profile
+}) => {
+  return {
+    myProfile: profile.myProfile
+  };
+}, {
+  getUserProfile
+})(UserProfile);

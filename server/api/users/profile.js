@@ -3,7 +3,20 @@ import {responseClient} from '../util';
 
 const router = Express.Router();
 
-router.post('/', function (req, res) {
+router.get('/', function (req, res) {
+  if (req) {
+    responseClient(res, 200, 1000, {
+      name: 'Lisa',
+      location: 'Shanghai',
+      avatar: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1546687975222&di=4301421c6f6f43eb14ca4f35ed1cf338&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201705%2F21%2F20170521090448_5NtYa.jpeg',
+      registerTime: '2019-01-29'
+    });
+  } else {
+    responseClient(res, 200, 2000, {error: "system error"});
+  }
+});
+
+router.get('/', function (req, res) {
   if (req) {
     responseClient(res, 200, 1000,
       {

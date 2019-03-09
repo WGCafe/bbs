@@ -42,6 +42,11 @@ class ApiUtil {
         path: 'login/'
       },
 
+      /* User profile */
+      getMyProfile: {
+        path: 'myprofile/'
+      },
+
       /* ArticleType */
       getArticleTypeList: {
         path: 'articletype/'

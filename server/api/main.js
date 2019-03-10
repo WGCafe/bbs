@@ -24,5 +24,6 @@ router.use('/forgetpassword', require('./users/forgetpassword'));
 router.use('/resetpassword', require('./users/resetpassword'));
 router.use('/users', require('./users/profile'));
 router.use('/login', require('./users/login'));
+router.use('/myprofile', require('./users/profile'));
 
 module.exports = router;

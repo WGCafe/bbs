@@ -46,6 +46,9 @@ class ApiUtil {
       getMyProfile: {
         path: 'myprofile/'
       },
+      getMyPost: {
+        path: 'mypost/'
+      },
 
       /* ArticleType */
       getArticleTypeList: {

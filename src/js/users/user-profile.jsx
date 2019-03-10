@@ -2,8 +2,8 @@ import LayoutContainer from '../layout/container.jsx';
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Tabs, Avatar, Col, Icon} from 'antd';
-import {getUserProfile} from '../pages/actions/profile-actions';
-// import MyPost from './my-post';
+import {getMYProfile, getUserInfo} from '../pages/actions/profile-actions';
+import MyPost from './my-post.jsx';
 
 import '../../styles/common.less';
 
@@ -19,7 +19,7 @@ class UserProfile extends Component {
   componentWillMount() {}
 
   componentDidMount() {
-    this.props.getUserProfile({
+    this.props.getUserInfo({
       userId: 'fake-userId'
     });
   }
@@ -28,6 +28,8 @@ class UserProfile extends Component {
 
   render() {
     const {name, location, registerTime, avatar} = this.props.myProfile;
+    const {myPosts} = this.props;
+
 
     return (
       <LayoutContainer>
@@ -61,9 +63,9 @@ class UserProfile extends Component {
             </div>
             <Tabs defaultActiveKey="1">
               <TabPane tab="主题" key="1">
-                <p>Content of Tab Pane 1</p>
-                <p>Content of Tab Pane 1</p>
-                <p>Content of Tab Pane 1</p>
+                {
+                  myPosts.map(post => <MyPost myPost={post} key={post.id}/>)
+                }
               </TabPane>
               <TabPane tab="回复" key="2">
                 <p>Content of Tab Pane 2</p>
@@ -84,8 +86,11 @@ export default connect(({
   profile
 }) => {
   return {
-    myProfile: profile.myProfile
+    myProfile: profile.userInfo.myProfile || {},
+    myPosts: profile.userInfo.myPosts || [],
+    myComments:
   };
 }, {
-  getUserProfile
+  getMYProfile,
+  getUserInfo
 })(UserProfile);

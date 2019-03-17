@@ -19,5 +19,10 @@ npm run start:api
 npm run start
 ```
 
+# Create API doc
+```
+aglio -i ./api-doc/Lanya-API.md -o ./api-doc/Lanya-API.html
+```
+
 
 

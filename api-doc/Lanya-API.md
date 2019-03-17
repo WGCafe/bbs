@@ -293,6 +293,7 @@ Token         | {user_token}
 
 + Parameters
 
+    + author_id: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9",
     + title: "test",
     + content: "test",
     + image: "https://test.com/path/x.jpg"

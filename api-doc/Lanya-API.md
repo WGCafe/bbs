@@ -481,6 +481,10 @@ Headers       | Value
 Content-Type  | application/json
 Token         | {user_token}
 
++ Parameters
+
+    + user_id: {user_id}
+
 
 + Response 200 (application/json)
 

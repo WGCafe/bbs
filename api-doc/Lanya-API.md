@@ -599,7 +599,7 @@ Token         | {user_token}
 
     + article_id: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9",
     + comment_id: "xxx",
-    + source_comment: "test-1",
+    + source_comment_id: "test-1",
     + user_id: "yyy",
     + content: "test"
 
@@ -707,7 +707,7 @@ Token         | {user_token}
                 "status": "1000",
                 "context": [{
 						id: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9",
-						source_comment: "test-0",
+						source_comment_id: "test-0",
 						author_name: "Jessica",
 						content: "test",
 						create_time: 1234567890111,
@@ -834,7 +834,7 @@ Token         | {user_token}
 	                }, ...],
 	                comments: [{
 							id: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9",
-							source_comment: "test-0",
+							source_comment_id: "test-0",
 							content: "test",
 							create_time: 1234567890111
 	                }, ...],

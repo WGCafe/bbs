@@ -46,8 +46,14 @@ class ApiUtil {
       getMyProfile: {
         path: 'myprofile/'
       },
-      getMyPost: {
+      getMyPosts: {
         path: 'mypost/'
+      },
+      getMyComments: {
+        path: 'mycomments/'
+      },
+      getMyInfo: {
+        path: 'myInfo/'
       },
 
       /* ArticleType */

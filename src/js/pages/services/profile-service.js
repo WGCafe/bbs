@@ -7,7 +7,17 @@ export function getMyProfile(data) {
     .then(({context}) => context);
 }
 
-export function getMyPost(data) {
-  return ApiFetch.get(APIUtil.API_INFO.getMyPost, data)
+export function getMyPosts(data) {
+  return ApiFetch.get(APIUtil.API_INFO.getMyPosts, data)
+    .then(({context}) => context);
+}
+
+export function getMyComments(data) {
+  return ApiFetch.get(APIUtil.API_INFO.getMyComments, data)
+    .then(({context}) => context);
+}
+
+export function getMyInfo(data) {
+  return ApiFetch.get(APIUtil.API_INFO.getMyInfo, data)
     .then(({context}) => context);
 }

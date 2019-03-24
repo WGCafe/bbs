@@ -3,15 +3,15 @@ import Constants from '../../utils/constants';
 const {
   GET_MY_PROFILE,
   MY_PROFILE_FETCHED,
-  GET_MY_POST,
-  MY_POST_FETCHED,
-  GET_USER_INFO,
-  USER_INFO_FETCHED,
-  GET_USER_COMMENTS,
-  USER_COMMENTS_FETCHED
+  GET_MY_POSTS,
+  MY_POSTS_FETCHED,
+  GET_MY_INFO,
+  MY_INFO_FETCHED,
+  GET_MY_COMMENTS,
+  MY_COMMENTS_FETCHED
 } = Constants.ACTIONS_NAME;
 
-export function getMYProfile(data) {
+export function getMyProfile(data) {
   return {
     type: GET_MY_PROFILE,
     data
@@ -25,44 +25,44 @@ export function getMyProfileSuccess(data) {
   };
 }
 
-export function getMyPost(data) {
+export function getMyPosts(data) {
   return {
-    type: GET_MY_POST,
+    type: GET_MY_POSTS,
     data
   };
 }
 
-export function getMyPostSuccess(data) {
+export function getMyPostsSuccess(data) {
   return {
-    type: MY_POST_FETCHED,
+    type: MY_POSTS_FETCHED,
     data
   };
 }
 
-export function getUserInfo(data) {
+export function getMyComments(data) {
   return {
-    type: GET_USER_INFO,
+    type: GET_MY_COMMENTS,
     data
   };
 }
 
-export function getUserInfoSuccess(data) {
+export function getMyCommentsSuccess(data) {
   return {
-    type: USER_INFO_FETCHED,
+    type: MY_COMMENTS_FETCHED,
     data
   };
 }
 
-export function getUserComments(data) {
+export function getMyInfo(data) {
   return {
-    type: GET_USER_COMMENTS,
+    type: GET_MY_INFO,
     data
   };
 }
 
-export function getUserCommentsSuccess(data) {
+export function getMyInfoSuccess(data) {
   return {
-    type: USER_COMMENTS_FETCHED,
+    type: MY_INFO_FETCHED,
     data
   };
 }

@@ -2,8 +2,9 @@ import LayoutContainer from '../layout/container.jsx';
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Tabs, Avatar, Col, Icon} from 'antd';
-import {getMYProfile, getUserInfo} from '../pages/actions/profile-actions';
+import {getMyProfile, getMyPosts, getMyComments} from '../pages/actions/profile-actions';
 import MyPost from './my-post.jsx';
+import MyComment from './my-comment.jsx';
 
 import '../../styles/common.less';
 
@@ -19,17 +20,38 @@ class UserProfile extends Component {
   componentWillMount() {}
 
   componentDidMount() {
-    this.props.getUserInfo({
+    this.props.getMyProfile({
       userId: 'fake-userId'
     });
+    this.props.getMyPosts({
+      userId: 'fake-userId'
+    });
+  }
+
+  renderTabContent(key) {
+    switch (key) {
+      case "1":
+        this.props.getMyPosts({
+          userId: 'fake-userId'
+        });
+        break;
+      case "2":
+        this.props.getMyComments({
+          userId: 'fake-userId'
+        });
+        break;
+      default:
+        this.props.getMyProfile({
+          userId: 'fake-userId'
+        });
+    }
   }
 
   componentWillReceiveProps() {}
 
   render() {
     const {name, location, registerTime, avatar} = this.props.myProfile;
-    const {myPosts} = this.props;
-
+    const {myPosts, myComments} = this.props;
 
     return (
       <LayoutContainer>
@@ -61,16 +83,16 @@ class UserProfile extends Component {
                 <a href="#/me-edit">编辑</a>
               </div>
             </div>
-            <Tabs defaultActiveKey="1">
+            <Tabs defaultActiveKey="1"  onChange={(key) => this.renderTabContent(key)}>
               <TabPane tab="主题" key="1">
                 {
                   myPosts.map(post => <MyPost myPost={post} key={post.id}/>)
                 }
               </TabPane>
               <TabPane tab="回复" key="2">
-                <p>Content of Tab Pane 2</p>
-                <p>Content of Tab Pane 2</p>
-                <p>Content of Tab Pane 2</p>
+                {
+                  myComments.map(comment => <MyComment myComment={comment} key={comment.id}/>)
+                }
               </TabPane>
             </Tabs>
           </Col>
@@ -86,11 +108,12 @@ export default connect(({
   profile
 }) => {
   return {
-    myProfile: profile.userInfo.myProfile || {},
-    myPosts: profile.userInfo.myPosts || [],
-    myComments:
+    myProfile: profile.myProfile.myProfile || {},
+    myPosts: profile.myPosts.myPosts || [],
+    myComments: profile.myComments.myComments || []
   };
 }, {
-  getMYProfile,
-  getUserInfo
+  getMyProfile,
+  getMyPosts,
+  getMyComments
 })(UserProfile);
